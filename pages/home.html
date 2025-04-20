@@ -1,0 +1,3725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Management</title>
+    <!-- ! link for bootstrap css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- ! link for font Awesome -->
+    <link rel="stylesheet" href="../css/all.min.css">
+    <!-- ! link for style -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/patient_followup_specific.css">
+    <link rel="stylesheet" href="../css/slider.css">
+    <!-- ! link for cairo google fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+    <!-- !link for poppins google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="position-relative">
+
+    <!-- & side navbar -->
+    <nav class="navbar">
+
+        <ul class="nav-menu list-unstyled">
+            <li class="nav-item mb-5">
+                <div class="logo-container">
+                    <a href="/" class="d-flex align-items-start pb-1 me-2 text-decoration-none">
+                        <span class="d-inline-block text-capitalize logo ">Neurosurgery Department</span>
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-home pe-3" aria-hidden="true"></i> Dashboard
+                </p>
+                <button onclick="location.href='dashboard.html'"
+                    class="btn bg-light rounded-pill dashboard-btn--color d-flex justify-content-center"
+                    onclick="location.href='dashboard.html'">
+                    Dashboard
+                </button>
+            </li>
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-plus-square pe-3" aria-hidden="true"></i>Patients
+                </p>
+                <div class="Patients__status bg-light py-1 px-3">
+                    <p class="mb-1 Patients_status__text">
+                        <a href="patient_list.html">All Patients</a>
+                    </p>
+                    <p class="mb-1 Patients_status__text">
+                        <a href="clinics.html">
+                            Add new patient
+                        </a>
+                    </p>
+
+                    <p class="mb-1 Patients_status__text_extra" data-role="both">
+                        <a href="patient_exit_cards.html">
+                            Patients Followup
+
+                        </a>
+                    </p>
+                    <p class="mb-1 Patients_status__text_extra role-based" data-role="both">
+                        <a href="tomorrow_list.html">
+                            Tomorrow List
+
+                        </a>
+                    </p>
+                </div>
+            </li>
+            <li class="nav-item mb-2 role-based" data-role="admin">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-users pe-3" aria-hidden="true"></i>Staff
+                </p>
+                <div class="staff__status bg-light py-1 px-3">
+                    <p class="mb-1 staff_status__text"><a href="users_list.html">All Users</a></p>
+                    <p class="mb-1 staff_status__text"><a href="user_info.html">Add new User</a></p>
+                    <p class="mb-1 staff_status__text"><a href="/">Attendance</a></p>
+
+                </div>
+            </li>
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-hospital pe-3" aria-hidden="true"></i>Rooms
+                </p>
+                <div class="rooms__status bg-light py-1 px-3">
+                    <p class="mb-1 rooms_status__text"><a href="rooms_list.html">
+                            All Rooms
+                        </a></p>
+                    <p class="mb-1 rooms_status__text">
+                        <a href="add_room.html">
+                            Add new Room
+                        </a>
+                    </p>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-hospital pe-3" aria-hidden="true"></i>Stock
+                </p>
+                <div class="rooms__status bg-light py-1 px-3">
+                    <p class="mb-1 rooms_status__text"><a href="stock_list.html">
+                            All Stock
+                        </a></p>
+                    <p class="mb-1 rooms_status__text">
+                        <a href="add_stock.html">
+                            Add new Stock
+                        </a>
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- & end side navbar  -->
+
+
+    <!-- * start main content -->
+    <div class="patient__info me-4 ms-4 col-md-9 ">
+        <div class="d-flex justify-content-between search__wrapper mx-auto bg-light px-2 pt-2 pb-2">
+            <input type="search" class="ps-2 py-2 searcher" placeholder="search" />
+
+            <div class="d-flex justify-content-between align-items-center">
+                <i class="fa fa-bell" aria-hidden="true"></i>
+                <p class="language border border-secondary rounded-1 px-2 mb-0 mx-2">
+                    AR
+                </p>
+                <i class="fa fa-male male__image" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="patient__form mx-auto mt-3 bg-light px-2 py-2">
+            <div class="d-flex justify-content-between">
+                <h4>Patient's information</h4>
+                <form class="status">
+                    <label for="state">Status: </label>
+                    <select name="state" id="state">
+                        <option value="active">Active</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </form>
+            </div>
+            <h5 class="mt-3 mb-4">Select field</h5>
+            <div class="wrapper_left">
+                <ul class="row gap-1">
+                    <li data-li="information" class="active col-md-3">
+                        <p>Information</p>
+                    </li>
+                    <li data-li="medical" class="col-md-3">
+                        <p>Medical</p>
+                    </li>
+                    <li data-li="examinations" class="col-md-3">
+                        <p>Examinations</p>
+                    </li>
+                    <li data-li="comments" class="col-md-3">
+                        <p>Comments</p>
+                    </li>
+                    <li data-li="management" class="col-md-3">
+                        <p>Management</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- ^ start info form -->
+
+            <form class="mt-3 row patient_form__inputs item information">
+                <div class="name col-md-5">
+                    <label>Full Name <span style="color: red; margin-top: 5px;"> * </span> </label>
+                    <br>
+                    <input class="pt-1 pb-1 form-control" type="text">
+                </div>
+                <div class="age col-md-2">
+                    <label class="text-nowrap">Age <span style="color: red; margin-top: 5px;"> * </span> </label>
+                    <br>
+                    <input class="pt-1 pb-1 form-control" type="number">
+                </div>
+                <div class="phone col-md-5">
+                    <label>phone number <span style="color: red; margin-top: 5px;"> * </span> </label>
+                    <br>
+                    <input class="pt-1 pb-1 form-control" type="tel">
+                </div>
+                <div class="address mt-2 col-md-8">
+                    <label>Address <span style="color: red; margin-top: 5px;"> * </span> </label>
+                    <br>
+                    <input class="pt-1 pb-1 form-control" type="text">
+                </div>
+                <div class="position col-md-4 mt-2">
+                    <label>Current position<span style="color: red; margin-top: 5px;"> * </span> </label>
+                    <br>
+                    <input class="form-control pt-1 pb-1" type="text">
+                </div>
+
+                <div class="employer col-md-5 mt-2">
+                    <label>Employer</label>
+                    <br>
+                    <input class="form-control pt-1 pb-1" type="text">
+                </div>
+                <div class="insurance col-md-4 mt-2">
+                    <label class="text-nowrap">Insurance / expenses number<span style="color: red; margin-top: 5px;"> *
+                        </span> </label>
+                    <br>
+                    <input class="form-control pt-1 pb-1" type="text">
+                </div>
+                <div class="file col-md-3 mt-2">
+                    <label class="text-nowrap">File number <span style="color: red; margin-top: 5px;"> * </span>
+                    </label>
+                    <br>
+                    <input class="form-control pt-1 pb-1" type="text">
+                </div>
+                <div class="entry col-md-4 mt-2">
+                    <label>Entry date <span style="color: red; margin-top: 5px;"> * </span> </label>
+                    <br>
+                    <input class="form-control pt-1 pb-1" type="datetime-local">
+                </div>
+                <!-- ! copy to clinics.html  -->
+                <div class="ID col-md-8 mt-2">
+                    <label>ID number <span style="color: red; margin-top: 5px;"> * </span> </label>
+                    <br>
+                    <input class="form-control pt-1 pb-1" type="text">
+                </div>
+                <div class="parent col-md-8 mt-2">
+                    <label>Parent Full Name </label>
+                    <br>
+                    <input class="pt-1 pb-1 form-control" type="text">
+                </div>
+                <div class="parent__number col-md-4 mt-2">
+                    <label>Parent Phone number</label>
+                    <br>
+                    <input class="pt-1 pb-1 form-control" type="tel">
+                </div>
+                <div class="parent-id mt-2 col-md-6">
+                    <label>Parent ID</label>
+                    <br>
+                    <input class="pt-1 pb-1 form-control" type="number">
+                </div>
+                <div class="contract_type col-md-12 mt-3">
+                    <label class="fw-bolder">The type of contract<span style="color: red; margin-top: 5px;"> *
+                        </span> </label>
+                    <br>
+                    <div class="form-check form-check-inline ">
+                        <input class="form-check-input " type="radio" id="inlineRadio1" name="inlineRadioOptions">
+                        <label class="form-check-label" for="inlineRadio1">Health Insurance</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input " type="radio" id="inlineRadio2" name="inlineRadioOptions">
+                        <label class="form-check-label" for="inlineRadio2">Economics</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input " type="radio" id="inlineRadio3" name="inlineRadioOptions">
+                        <label class="form-check-label" for="inlineRadio3">Treatment At State Expenses</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="inlineRadio4" name="inlineRadioOptions">
+                        <label class="form-check-label" for="inlineRadio4">Other</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="date_decision col-md-4 mt-2">
+                        <label>Date of Decision </label>
+                        <br>
+                        <input class="form-control pt-1 pb-1" type="datetime-local">
+                    </div>
+                    <div class="status_decision col-md-4 mt-2">
+                        <label>Status of Decision </label>
+                        <br>
+                        <select name="status" id="status" class="form-select">
+
+                            <option value="expired">Expired</option>
+                            <option value="working">Working</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="diagnoses-info mt-3 d-flex flex-row">
+                    <div class="initial_diagnoses mt-2 me-4">
+                        <label>Initial Diagnosis</label>
+                        <br>
+                        <!-- <textarea rows="6" cols="35">Note</textarea> -->
+                        <div class="dropdown">
+                            <button class="btn btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuButton"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                --Select--
+                            </button>
+                            <ul class="dropdown-menu bg-white ms-2" aria-labelledby="dropdownMenuButton">
+                                <li>
+                                    <div class="form-check mx-2">
+                                        <input class="form-check-input" type="checkbox" value="ct" id="checkbox1">
+                                        <label class="form-check-label" for="checkbox1">
+                                            Diabietics
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check mx-2">
+                                        <input class="form-check-input" type="checkbox" value="mri" id="checkbox2">
+                                        <label class="form-check-label" for="checkbox2">
+                                            High Blood Pressure
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check mx-2">
+                                        <input class="form-check-input" type="checkbox" id="checkbox3">
+                                        <label class="form-check-label" for="checkbox3">
+                                            MRI Brain with Contrast
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check mx-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox4">
+                                        <label class="form-check-label" for="checkbox4"> MRS</label>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="form-check mx-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox5">
+                                        <label class="form-check-label" for="checkbox5"> MRA & MRV</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check mx-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox6">
+                                        <label class="form-check-label" for="checkbox6"> MCT Cerebral
+                                            Angiography</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check mx-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox7">
+                                        <label class="form-check-label" for="checkbox7"> MRI CSF Flowmetry</label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="form-check mx-2">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox8">
+                                        <label class="form-check-label" for="checkbox8"> MR Spectroscopy</label>
+                                    </div>
+                                </li>
+
+
+                            </ul>
+                        </div>
+
+
+
+                    </div>
+                    <div class="d-flex flex-column col-md-6">
+                        <div class="diagnoser_hospital_info mt-2 mb-5">
+                            <label>The hospital</label>
+                            <br>
+                            <input class="form-control pt-1 pb-1" type="text">
+                        </div>
+                        <div class="diagnoser_doctor_info">
+                            <label>Doctor <span style="color: red; margin-top: 5px;"> * </span></label>
+                            <br>
+                            <input class="form-control pt-1 pb-1" type="text">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="social_type mt-3 row w-75 justify-content-evenly">
+
+                    <div class="gender col-md-4">
+                        <label class="fw-bolder">Gender</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input " type="radio" id="male" name="inlineRadioOptions">
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input " type="radio" id="female" name="inlineRadioOptions">
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                    </div>
+                    <div class="status col-md-4">
+                        <label class="fw-bolder">Status</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="married" name="inlineRadioOptions2">
+                            <label class="form-check-label" for="married">Married</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="single" name="inlineRadioOptions2">
+                            <label class="form-check-label" for="single">Single</label>
+                        </div>
+                    </div>
+
+                    <div class="religion col-md-4">
+                        <label class="fw-bolder">Religion</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input " type="radio" id="muslim" name="inlineRadioOptions3">
+                            <label class="form-check-label" for="muslim">Muslim</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input " type="radio" id="christian" name="inlineRadioOptions3">
+                            <label class="form-check-label" for="christian">Christian</label>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+            </form>
+
+            <!-- ^end of info form -->
+
+
+            <!-- todo------ start of medical form -->
+
+
+            <form class="mt-3 row medical_form__inputs item medical" style="display: none;">
+
+                <div class="previous_illness col-md-10 mt-3">
+                    <label class="fw-bolder">Previous surgeries</label>
+                    <br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input " type="radio" id="yes_previous" name="inlineRadioOptions1">
+                        <label class="form-check-label" for="yes_previous">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="no_previous" name="inlineRadioOptions1">
+                        <label class="form-check-label" for="no_previous">No</label>
+                    </div>
+                </div>
+                <div class="note_previous_illness col-md-10" id="note_previous_illness">
+                    <input type="text" class="form-control pt-1 pb-1">
+                </div>
+
+                <div class="extra_illness mt-3 row">
+                    <div class="chronic col-md-6">
+                        <label class="fw-bolder">Chronic Diseases</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="yes_extra" name="inlineRadioOptions2">
+                            <label class="form-check-label" for="yes_extra">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input 
+" type="radio" id="no_extra" name="inlineRadioOptions2">
+                            <label class="form-check-label" for="no_extra">No</label>
+                        </div>
+
+
+                        <div id="note_extra_illness">
+                            <div class="dropdown">
+                                <button class="btn btn-light bg-white dropdown-toggle" type="button"
+                                    id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    --Select--
+                                </button>
+                                <ul class="dropdown-menu bg-white ms-2" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <div class="form-check mx-2">
+                                            <input class="form-check-input" type="checkbox" value="ct" id="checkbox1">
+                                            <label class="form-check-label" for="checkbox1">
+                                                Diabetes Mellatus
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check mx-2">
+                                            <input class="form-check-input" type="checkbox" value="mri" id="checkbox2">
+                                            <label class="form-check-label" for="checkbox2">
+                                                Hypertension
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check mx-2">
+                                            <input class="form-check-input" type="checkbox" id="checkbox3">
+                                            <label class="form-check-label" for="checkbox3">
+                                                Ischemic Heart Disease
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check mx-2">
+                                            <input class="form-check-input" type="checkbox" value="" id="checkbox4">
+                                            <label class="form-check-label" for="checkbox4">Valvular Heart
+                                                Disease</label>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="form-check mx-2">
+                                            <input class="form-check-input" type="checkbox" value="" id="checkbox5">
+                                            <label class="form-check-label" for="checkbox5">Hypothyroidism</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check mx-2">
+                                            <input class="form-check-input" type="checkbox" value="" id="checkbox6">
+                                            <label class="form-check-label" for="checkbox6">Hyperthyroidism</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="complaints col-md-10 ">
+                            <label class="fw-bolder">Patient complaints</label>
+                            <br>
+                            <!-- <div class="form-check form-check-inline">
+                                <input class="form-check-input 
+" type="radio" id="yes_complaint" name="inlineRadioOptions34" ">
+                            <label class=" form-check-label" for="yes_complaint">Yes</label>
+                            </div> -->
+
+                            <textarea  class="form-control" rows="4" ></textarea>
+                        </div>
+
+                        <div class="note_previous_illness " id="note_complaints">
+                            <!-- <label class="fw-bolder">Patient Complaints Note</label> -->
+                            <!-- <br> -->
+                            <input type="text" class="form-control">
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="col-md-8 mt-3">
+                    <label class="fw-bold">Medication</label>
+                    <div class="table-container">
+
+                        <table class="table table-borderless" id="medication_table">
+                            <thead class="text-nowrap">
+                                <tr>
+                                    <th class="text-nowrap">Medicine Name</th>
+                                    <th class="text-nowrap">Dosage</th>
+                                    <th>Frequency</th>
+                                    <!-- <th>Duration</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select name="medicine_name" id="medicine_name" class="form-select">
+                                            <option disabled selected>Select</option>
+                                            <option value="name1" name="name1">Name 1</option>
+                                            <option value="name2" name="name2">Name 1</option>
+
+                                            <option value="name3" name="name3">Name 1</option>
+
+                                            <option value="name4" name="name4">Name 1</option>
+
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="number_dosage w-25"> <input type="text"
+                                            name="dosage_unit" id="dosage_unit" class="number_dosage_unit w-25"></td>
+                                    <td><input type="text" class="number_frequency w-50"></td>
+                                    <!-- <td><input type="text" class="number_duration w-50"></td> -->
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <select name="medicine_name" id="medicine_name" class="form-select">
+                                            <option disabled selected>Select</option>
+                                            <option value="name1" name="name1">Name 1</option>
+                                            <option value="name2" name="name2">Name 2</option>
+
+                                            <option value="name3" name="name3">Name 3</option>
+
+                                            <option value="name4" name="name4">Name 4</option>
+
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="number_dosage w-25"> <input type="text"
+                                            name="dosage_unit" id="dosage_unit" class="number_dosage_unit w-25"></td>
+                                    <td><input type="text" class="number_frequency w-50"></td>
+                                    <!-- <td><input type="text" class="number_duration w-50"></td> -->
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select name="medicine_name" id="medicine_name" class="form-select">
+                                            <option disabled selected>Select</option>
+                                            <option value="name1" name="name1">Name 1</option>
+                                            <option value="name2" name="name2">Name 1</option>
+
+                                            <option value="name3" name="name3">Name 1</option>
+
+                                            <option value="name4" name="name4">Name 1</option>
+
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="number_dosage w-25"> <input type="text"
+                                            name="dosage_unit" id="dosage_unit" class="number_dosage_unit w-25"></td>
+                                    <td><input type="text" class="number_frequency w-50"></td>
+                                    <!-- <td><input type="text" class="number_duration w-50"></td> -->
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select name="medicine_name" id="medicine_name" class="form-select">
+                                            <option disabled selected>Select</option>
+                                            <option value="name1" name="name1">Name 1</option>
+                                            <option value="name2" name="name2">Name 1</option>
+
+                                            <option value="name3" name="name3">Name 1</option>
+
+                                            <option value="name4" name="name4">Name 1</option>
+
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="number_dosage w-25"> <input type="text"
+                                            name="dosage_unit" id="dosage_unit" class="number_dosage_unit w-25"></td>
+                                    <td><input type="text" class="number_frequency w-50"></td>
+                                    <!-- <td><input type="text" class="number_duration w-50"></td> -->
+                                </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+                    </div>
+
+                    <span class="add-btn btn text-white" id="add_row">
+                        <i class="fas fa-plus"></i> Add New Medicine
+                    </span>
+
+                </div>
+
+
+
+
+                <div class="note_operative col-md-8 mt-3">
+                    <label class="fw-bolder">History of present illness and analysis of the complaint</label>
+                    <br>
+                    <input type="text" class="form-control pt-1 pb-1">
+                </div>
+
+                <!-- <div class="note_operative col-md-8 mt-3">
+                    <label class="fw-bolder">Past History</label>
+                    <br>
+                    <input type="text" class="form-control pt-1 pb-1">
+                </div> -->
+
+                <!-- <div class="file_upload row mt-3">
+
+                    <div class="col-md-6">
+                        <label class="fw-bolder">New Check</label>
+                        <br>
+                        <div class="check">
+                            <input type="file" class="form-control py-3" id="file-input" multiple>
+                            <label for="file-input" class="py-3 d-flex flex-column upload">
+                                <i class="fas fa-plus fw-bold text-primary fs-5"></i>
+                                Upload Files
+                            </label>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="fw-bolder">Patient Attachments</label>
+                        <div class="attachments ">
+                            <input type="file" class="py-3 form-control" id="file-input" multiple>
+                            <label for="file-input" class="py-3 d-flex flex-column upload">
+                                <i class="fas fa-plus fw-bold text-primary fs-5"></i>
+                                Upload Files
+                            </label>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="row mt-3 file_upload">
+                    <div class="col-md-4">
+                        <label class="fw-bold">1. Images</label>
+                        <br>
+                        <div class="check">
+                            <input type="file" class="form-control py-3 radiology_input" id="file-input" multiple>
+                            <label for="file-input" class="py-3 d-flex flex-column upload">
+                                <i class="fas fa-plus fw-bold fs-5"></i>
+                                Radiology Images
+                            </label>
+                            <div class="preview-container d-flex flex-wrap"></div>
+                            <div class="enlarged-view">
+                                <span class="close-enlarged">&times;</span>
+                                <div class="enlarged-content"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <label for="date_image" class="form-label">Date of Radiology Image :</label>
+                            <input type="date" class="form-control ms-2 w-75 d-flex" name="date_image"
+                                id="date_image" />
+
+                        </div>
+
+
+                    </div>
+                    <div class="row mt-3">
+                        <label for="comment_image" class="form-label ">Comment for Radiology Image : </label>
+                        <textarea class="pt-1 pb-1 ms-2 form-control" id="comment_image" rows="2"></textarea>
+
+                    </div>
+                    <div class="col-md-6">
+                        <label class="fw-bold">2. Labs</label>
+                        <!-- !beside eachother w smaller size attach link to page laboratory.html -->
+                        <div class="row ">
+                            <div class="attachments lab-link col-md-4">
+                                <!-- !add 3.lab report -->
+                                <!-- <input type="file" class="form-control" id="file-input" multiple> -->
+                                <label for="file-input" class="d-flex flex-column py-3 upload">
+                                    <i class="fas fa-plus fw-bold fs-5"></i>
+                                    <a href="laboratory.html"> Lab Report</a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="room col-md-8 mt-3">
+                    <label for="room">NO room </label>
+                    <br>
+                    <select name="room" id="room">
+                        <option>Room 1 - royal</option>
+                        <option>Room 2 - royal</option>
+                    </select>
+                </div>
+
+                <div class="book col-md-8 mt-3 mb-3">
+                    <label for="book">Status Booking</label>
+                    <br>
+                    <select name="book" id="book">
+                        <option>Booked</option>
+                        <option>Exit</option>
+                    </select>
+                </div>
+
+
+
+
+
+
+            </form>
+
+
+
+
+            <!-- todo --- end of medical form -->
+
+            <form class="mt-3 row medical_form__inputs item examinations" style="display: none; width: 90%;">
+
+                <!-- !!! YZHAR BOX -->
+
+                <div class="row mt-3 ">
+                    <label class="fw-bold">General Exam</label>
+                    <br>
+                    <div class="col-md-12 mt-3 general_exam">
+
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                <label for="appearance" class="form-label">General Appearance </label>
+                                <select class="form-select w-50 ms-1 mb-2" name="appearance" id="appearance">
+
+                                    <option value="normal" class="appearance">Normal</option>
+                                    <option value="abnormal" class="appearance">Abnormal</option>
+                                </select>
+
+                                <div class="showText my-3">
+                                    <input type="text" name="showText" id="showText" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="head" class="form-label">Head </label>
+                                <select class="form-select w-50 ms-1 mb-2" name="head" id="head">
+
+                                    <option value="normal" class="head">Normal</option>
+                                    <option value="abnormal" class="head">Abnormal</option>
+                                </select>
+
+                                <div class="showText my-3">
+                                    <input type="text" name="showText" id="showText" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="face" class="form-label">Face </label>
+                                <select class="form-select w-50 ms-1 mb-2" name="face" id="face">
+
+                                    <option value="normal" class="face">Normal</option>
+                                    <option value="abnormal" class="face">Abnormal</option>
+                                </select>
+
+                                <div class="showText my-3">
+                                    <input type="text" name="showText" id="showText" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3">
+
+
+                            <div class="col-md-4">
+                                <label for="ear" class="form-label">Eye, Ear, Nose </label>
+                                <select class="form-select w-50 ms-1 mb-2" name="ear" id="ear">
+
+                                    <option value="normal" class="ear">Normal</option>
+                                    <option value="abnormal" class="ear">Abnormal</option>
+                                </select>
+
+                                <div class="showText my-3">
+                                    <input type="text" name="showText" id="showText" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="mouth" class="form-label">Mouth </label>
+                                <select class="form-select w-50 ms-1 mb-2" name="mouth" id="mouth">
+
+                                    <option value="normal" class="mouth">Normal</option>
+                                    <option value="abnormal" class="mouth">Abnormal</option>
+                                </select>
+
+                                <div class="showText my-3">
+                                    <input type="text" name="showText" id="showText" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="neck" class="form-label">Neck </label>
+                                <select class="form-select w-50 ms-1 mb-2" name="neck" id="neck">
+
+                                    <option value="normal" class="neck">Normal</option>
+                                    <option value="abnormal" class="neck">Abnormal</option>
+                                </select>
+
+                                <div class="showText my-3">
+                                    <input type="text" name="showText" id="showText" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                <label for="nodes" class="form-label">Lymph nodes </label>
+                                <select class="form-select w-50 ms-1 mb-2" name="nodes" id="nodes">
+                                    <option value="normal" class="nodes">Normal</option>
+                                    <option value="abnormal" class="nodes">Abnormal</option>
+                                </select>
+
+                                <div class="showText my-3">
+                                    <input type="text" name="showText" id="showText" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="oedema" class="form-label">Oedema </label>
+                                <select class="form-select w-50 ms-1 mb-2" name="oedema" id="oedema">
+
+                                    <option value="normal" class="oedema">Normal</option>
+                                    <option value="abnormal" class="oedema">Abnormal</option>
+                                </select>
+
+                                <div class="showText my-3">
+                                    <input type="text" name="showText" id="showText" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="limbs" class="form-label">Limbs and Nails </label>
+                                <select class="form-select w-50 ms-1 mb-2" name="limbs" id="limbs">
+
+                                    <option value="normal" class="limbs">Normal</option>
+                                    <option value="abnormal" class="limbs">Abnormal</option>
+                                </select>
+
+                                <div class="showText my-3">
+                                    <input type="text" name="showText" id="showText" class="form-control">
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <div class="col-md-4">
+                                <label for="body" class="form-label">Body Mass Index </label>
+                                <br>
+                                <input type="number" class="form-control w-50 ms-1" name="body" id="body" />
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <!-- !!! 5 radio buttons  Blood pressure -- Pulse -- Temperature -- Respiratory rate -- O2 saturation -->
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <div class="row mt-3">
+                            <div class="col-md-8">
+                                <input type="radio" class="form-radio-input" name="type1" id="pressure">
+                                <label for="pressure" class="mx-2 form-radio-label "> Blood pressure</label>
+                            </div>
+                            <div class="col-md-4 vital_number mb-2">
+                                <input type="text" class="form-control" name="vital_number" id="vital_number">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <div class="row mt-3">
+                            <div class="col-md-8">
+                                <input type="radio" class="form-radio-input" name="type2" id="pulse">
+                                <label for="pulse" class="mx-2 form-radio-label "> Pulse</label>
+                            </div>
+                            <div class="col-md-4 vital_number mb-2">
+                                <input type="number" class="form-control" name="vital_number" id="vital_number">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="row mt-3">
+                            <div class="col-md-8">
+                                <input type="radio" class="form-radio-input" name="type3" id="temp">
+                                <label for="temp" class="mx-2 form-radio-label "> Temperature</label>
+                            </div>
+                            <div class="col-md-4 vital_number mb-2">
+                                <input type="number" class="form-control" name="vital_number" id="vital_number">
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row mt-3">
+                            <div class="col-md-8">
+                                <input type="radio" class="form-radio-input" name="type4" id="rate">
+                                <label for="rate" class="mx-2 form-radio-label "> Respiratory Rate</label>
+                            </div>
+                            <div class="col-md-4 vital_number mb-2">
+                                <input type="number" class="form-control" name="vital_number" id="vital_number">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row mt-3">
+                            <div class="col-md-8">
+                                <input type="radio" class="form-radio-input" name="type5" id="saturation">
+                                <label for="saturation" class="mx-2 form-radio-label "> O2 Saturation</label>
+                            </div>
+                            <div class="col-md-4 vital_number mb-2">
+                                <input type="number" class="form-control" name="vital_number" id="vital_number">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="gcs-score my-3">
+                    <label class="fw-bold mb-5">GCS :</label>
+                    <br>
+                    <div class="slider">
+                        <input type="range" min="3" max="15" step="1" id="asaSlider">
+                        <div class="slider-labels">
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                            <span>6</span>
+                            <span>7</span>
+                            <span>8</span>
+                            <span>9</span>
+                            <span>10</span>
+                            <span>11</span>
+                            <span>12</span>
+                            <span>13</span>
+                            <span>14
+                            </span>
+                            <span>15</span>
+
+                        </div>
+                    </div>
+                    <p id="selectedScore">3</p>
+                </div>
+
+                <div class="row mt-3 ms-3">
+
+                    <!-- <div class="col-md-10">
+                        <label class="fw-bold">Consciousness and Mentality</label>
+                        <br>
+                        <textarea class="form-control pt-1 pb-1" rows="6"></textarea>
+                    </div> -->
+                    <h3 class="text-center">Mini Mental Score Test</h3>
+                    <table class="table  table-bordered mentality">
+                        <tbody>
+                            <tr>
+                                <td colspan="2">
+                                    <h4>Orientation</h4>
+                                    <p>Year Season Month Date Time </p>
+                                    <p>Country Town District Hospital Ward/Floor</p>
+                                </td>
+                                <td>
+                                    <input type="number" class="mt-2 mental_score" min="0" max="5">
+                                    <br>
+                                    <input type="number" class="mt-5 mental_score" min="0" max="5">
+
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="2">
+                                    <h4>Registration</h4>
+                                    <p>Examiner names three objects (e.g. apple, table, penny ) and asks the patient to
+                                        repeat (1 point for each correct. Then the patient learns the 3 names repeating
+                                        until correct)</p>
+                                </td>
+                                <td>
+                                    <input type="number" min="0" max="3" class="mt-4 mental_score">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    <h4>Attention and Calculation</h4>
+                                    <p>Subtract 7 from 100, then repeat from result. Continue five times:
+                                        100,93,86,79,65. (Alternative: spell "WORLD" backwards: DLROW)
+                                    </p>
+                                </td>
+                                <td>
+                                    <input type="number" class="mt-4 mental_score" min="0" max="5">
+                                </td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td colspan="2">
+                                    <h4>Recall</h4>
+                                    <p>
+                                        Ask for the names of the three objects learned earlier.
+                                    </p>
+                                </td>
+                                <td>
+                                    <input type="number" class="mt-4 mental_score" min="0" max="3">
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td colspan="2">
+                                    <h4>Language</h4>
+                                    <p>Name two objects (e.g. pen, watch). </p>
+                                    <p>Repeat "No ifs, ands, or buts".</p>
+                                    <p>Give a three-stage command. Score 1 for each stage. (e.g. "Place index of right
+                                        hand on your nose and then on your left ear").</p>
+                                    <p>Ask the patient to read and obey a written command on a piece of paper. The
+                                        written instruction is: "Close your eyes".</p>
+                                    <p>Ask the patient to write a sentence. Score 1 if it is sensible and has a subject
+                                        and a verb.</p>
+                                </td>
+                                <td>
+                                    <input type="number" class="mt-4 mental_score" min="0" max="2">
+                                    <br>
+                                    <input type="number" class="mt-4 mental_score" min="0" max="1">
+
+                                    <br>
+                                    <input type="number" class="mt-4 mental_score" min="0" max="3">
+
+                                    <br>
+                                    <input type="number" class="mt-5 mental_score" min="0" max="1">
+
+                                    <br>
+                                    <input type="number" class="mt-4 mental_score" min="0" max="1">
+
+
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2" class="pentagon_img">
+
+                                    <p>
+                                        Please Copy This Picture.
+                                    </p>
+                                    <img src="../images/miniMental.jpg" alt="two pentagons intersecting" class="w-25">
+                                </td>
+                                
+                                <td>
+                                    <input type="number" class="mt-4 mental_score" min="0" max="1" placeholder="0">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="2">
+                                    <h4>Total</h4>
+
+                                </td>
+                                <td>
+                                    <input type="number" title="Total" readonly class="mt-4 mental_total">
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="row  mt-3">
+
+                    <label class="fw-bold mt-3 mb-1">Speech</label>
+                    <div class="col-md-6">
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="normal_gait">
+                                <label for="psoatic" class="mx-2 form-check-label "> Normal</label>
+                            </div>
+
+
+                        </div>
+                        <div class="row mt-3 speech">
+                            <div class="col-md-8">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="ataxia">
+                                <label for="ataxia" class="mx-2 form-check-label ">Mute</label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="ataxia_sensory">
+                                <label for="ataxia_sensory" class="mx-2 form-check-label "> Global Aphasia</label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-8">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="spastic">
+                                <label for="spastic" class="mx-2 form-check-label">Motor Aphasia</label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="parkinsonian">
+                                <label for="parkinsonian" class="mx-2 form-check-label">Sensory Aphasia</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="scissoring">
+                                <label for="scissoring" class="mx-2 form-check-label "> Dysarthria </label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="marche">
+                                <label for="marche" class="mx-2 form-check-label"> Apraxia</label>
+                            </div>
+
+
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="apraxia">
+                                <label for="apraxia" class="mx-2 form-check-label ">Stuttering </label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="cautious">
+                                <label for="cautious" class="mx-2 form-check-label "> Articulation Disorders </label>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="steppage">
+                                <label for="steppage" class="mx-2 form-check-label"> Voice Disorders </label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="myopathic">
+                                <label for="myopathic" class="mx-2 form-check-label text_extra_1">Orofacial
+                                    Myofunctional Disorders </label>
+                            </div>
+
+                        </div>
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="hyperkinetic">
+                                <label for="hyperkinetic" class="mx-2 form-check-label "> Selective Mutism </label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="thalamic">
+                                <label for="thalamic" class="mx-2 form-check-label text_extra__1"> Language Based
+                                    Learning Disability </label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="antalgic">
+                                <label for="antalgic" class="mx-2 form-check-label "> Phonological Disorders </label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="arthrogenic">
+                                <label for="arthrogenic" class="mx-2 form-check-label ">Spasmodic Dysphonia </label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="trendelenburg">
+                                <label for="trendelenburg" class="mx-2 form-check-label text-wrap text_extra">Autism
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="lurching">
+                                <label for="lurching" class="mx-2 form-check-label "> Cluttering</label>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="psoatic">
+                                <label for="psoatic" class="mx-2 form-check-label "> Fluency Disorders</label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="psoatic">
+                                <label for="psoatic" class="mx-2 form-check-label "> Cleft Palate Speech</label>
+                            </div>
+                        </div>
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="psoatic">
+                                <label for="psoatic" class="mx-2 form-check-label text_extra"> Communication
+                                    Disorders</label>
+                            </div>
+                        </div>
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="psoatic">
+                                <label for="psoatic" class="mx-2 form-check-label "> Speech Disfluency</label>
+                            </div>
+                        </div>
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="psoatic">
+                                <label for="psoatic" class="mx-2 form-check-label "> Lisp</label>
+                            </div>
+                        </div>
+                        <div class="row mt-3 speech">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="psoatic">
+                                <label for="psoatic" class="mx-2 form-check-label text_extra_1"> Auditory Processing
+                                    Disorders</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="carnial_nerves col-md-6">
+                        <label class="fw-bold my-2">Cranial Nerves</label>
+                        <div class="row mt-3">
+
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input" name="type1" id="trauma">
+                                <label for="trauma" class="mx-2 form-check-label "> Olfactory</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <!-- <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Ask the client to smell and identify the smell of cologne with each nostril separately and with the eyes closed">
+                                </textarea> -->
+
+                                <Select class="mt-2">
+                                    <option value="intact" class="select_nerves">Intact</option>
+                                    <option value="affect" class="select_nerves">Affect</option>
+
+
+                                </Select>
+                                <input type="text" class="form-control mt-3 affect_nerves_input">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <div class="col-md-12 ">
+                                <input type="checkbox" class="form-check-input checkbox_input" id="optic">
+                                <label for="optic" class="mx-2 form-check-label "> Optic</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <!-- <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Ask the client to smell and identify the smell of cologne with each nostril separately and with the eyes closed">
+                                </textarea> -->
+
+                                <Select class="mt-2">
+                                    <option value="intact" class="select_nerves">Intact</option>
+                                    <option value="affect" class="select_nerves">Affect</option>
+
+
+                                </Select>
+                                <input type="text" class="form-control mt-3 affect_nerves_input">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input" id="ocul">
+                                <label for="ocul" class="mx-2 form-check-label "> Oculomotor</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <!-- <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Ask the client to smell and identify the smell of cologne with each nostril separately and with the eyes closed">
+                                </textarea> -->
+
+                                <Select class="mt-2">
+                                    <option value="intact" class="select_nerves">Intact</option>
+                                    <option value="affect" class="select_nerves">Affect</option>
+
+
+                                </Select>
+                                <input type="text" class="form-control mt-3 affect_nerves_input">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 ">
+
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input" id="toch">
+                                <label for="toch" class="mx-2 form-check-label "> Tochlear</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <!-- <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Ask the client to smell and identify the smell of cologne with each nostril separately and with the eyes closed">
+                                </textarea> -->
+
+                                <Select class="mt-2">
+                                    <option value="intact" class="select_nerves">Intact</option>
+                                    <option value="affect" class="select_nerves">Affect</option>
+
+
+                                </Select>
+                                <input type="text" class="form-control mt-3 affect_nerves_input">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input" id="trigem">
+                                <label for="trigem" class="mx-2 form-check-label "> Trigeminal</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <!-- <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Ask the client to smell and identify the smell of cologne with each nostril separately and with the eyes closed">
+                                </textarea> -->
+
+                                <Select class="mt-2">
+                                    <option value="intact" class="select_nerves">Intact</option>
+                                    <option value="affect" class="select_nerves">Affect</option>
+
+
+                                </Select>
+                                <input type="text" class="form-control mt-3 affect_nerves_input">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input" id="abducens">
+                                <label for="abducens" class="mx-2 form-check-label "> Abducens</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <!-- <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Ask the client to smell and identify the smell of cologne with each nostril separately and with the eyes closed">
+                                </textarea> -->
+
+                                <Select class="mt-2">
+                                    <option value="intact" class="select_nerves">Intact</option>
+                                    <option value="affect" class="select_nerves">Affect</option>
+
+
+                                </Select>
+                                <input type="text" class="form-control mt-3 affect_nerves_input">
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input" id="facial">
+                                <label for="facial" class="mx-2 form-check-label "> Facial</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <!-- <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Ask the client to smell and identify the smell of cologne with each nostril separately and with the eyes closed">
+                                </textarea> -->
+
+                                <Select class="mt-2">
+                                    <option value="intact" class="select_nerves">Intact</option>
+                                    <option value="affect" class="select_nerves">Affect</option>
+
+
+                                </Select>
+                                <input type="text" class="form-control mt-3 affect_nerves_input">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input" id="vest">
+                                <label for="vest" class="mx-2 form-check-label vest"> Vestibulocochlear</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <!-- <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Ask the client to smell and identify the smell of cologne with each nostril separately and with the eyes closed">
+                                </textarea> -->
+
+                                <Select class="mt-2">
+                                    <option value="intact" class="select_nerves">Intact</option>
+                                    <option value="affect" class="select_nerves">Affect</option>
+
+
+                                </Select>
+                                <input type="text" class="form-control mt-3 affect_nerves_input">
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input" id="gloss">
+                                <label for="gloss" class="mx-2 form-check-label"> Glossopharygeal</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <!-- <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Ask the client to smell and identify the smell of cologne with each nostril separately and with the eyes closed">
+                                </textarea> -->
+
+                                <Select class="mt-2">
+                                    <option value="intact" class="select_nerves">Intact</option>
+                                    <option value="affect" class="select_nerves">Affect</option>
+
+
+                                </Select>
+                                <input type="text" class="form-control mt-3 affect_nerves_input">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input" id="vagus">
+                                <label for="vagus" class="mx-2 form-check-label "> Vagus</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <!-- <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Ask the client to smell and identify the smell of cologne with each nostril separately and with the eyes closed">
+                                </textarea> -->
+
+                                <Select class="mt-2">
+                                    <option value="intact" class="select_nerves">Intact</option>
+                                    <option value="affect" class="select_nerves">Affect</option>
+
+
+                                </Select>
+                                <input type="text" class="form-control mt-3 affect_nerves_input">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input" id="acc">
+                                <label for="acc" class="mx-2 form-check-label "> Accessory</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <!-- <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Ask the client to smell and identify the smell of cologne with each nostril separately and with the eyes closed">
+                                </textarea> -->
+
+                                <Select class="mt-2">
+                                    <option value="intact" class="select_nerves">Intact</option>
+                                    <option value="affect" class="select_nerves">Affect</option>
+
+
+                                </Select>
+                                <input type="text" class="form-control mt-3 affect_nerves_input">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3">
+
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input" id="hypo">
+                                <label for="hypo" class="mx-2 form-check-label "> Hypoglossal</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <!-- <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Ask the client to smell and identify the smell of cologne with each nostril separately and with the eyes closed">
+                                </textarea> -->
+
+                                <Select class="mt-2">
+                                    <option value="intact" class="select_nerves">Intact</option>
+                                    <option value="affect" class="select_nerves">Affect</option>
+
+
+                                </Select>
+                                <input type="text" class="form-control mt-3 affect_nerves_input">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="gait_list col-md-6">
+                        <label class="fw-bold mt-3 mb-1">Gait</label>
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="normal_gait">
+                                <label for="psoatic" class="mx-2 form-check-label "> Normal</label>
+                            </div>
+
+
+                        </div>
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="ataxia">
+                                <label for="ataxia" class="mx-2 form-check-label "> Cerebellar Ataxia</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="Most commonly seen in cerebellar disease.(midline)"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="ataxia_sensory">
+                                <label for="ataxia_sensory" class="mx-2 form-check-label "> Sensory Ataxia</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder=" Disorders of the dorsal columns (B12 deficiency or tabes dorsalis) or in diseases affecting the peripheral nerves (uncontrolled diabetes). "></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="spastic">
+                                <label for="spastic" class="mx-2 form-check-label text-wrap text_extra_1">Gait of
+                                    Spastic Hemiparesis</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder=" Lesion interrupting the corticospinal pathways to one-half of the body, most commonly stroke"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="parkinsonian">
+                                <label for="parkinsonian" class="mx-2 form-check-label text-wrap text_extra">
+                                    Parkinsonian Gait</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder=" Parkinson's disease or any other condition causing parkinsonism, such as side effects from drugs."></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="scissoring">
+                                <label for="scissoring" class="mx-2 form-check-label "> Scissoring gait </label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder=" UMNL bilateral periventricular lesions, such as those seen in cerebral palsy. Patients have involvement on both sides with spasticity in lower extremities worse than upper extremities. "></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="marche">
+                                <label for="marche" class="mx-2 form-check-label text_extra text-wrap"> Marche à Petits
+                                    Pas </label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder=" Seen in normal elderly persons, frontal lobes dysfunction, NPH and in other types of hydrocephalus, multi-infarct dementia or lacunar state."></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="apraxia">
+                                <label for="apraxia" class="mx-2 form-check-label "> Gait Apraxia </label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder=" Seen in with extensive cerebral lesions, especially of the frontal lobes. "></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="cautious">
+                                <label for="cautious" class="mx-2 form-check-label text_extra text-wrap"> Cautious
+                                    (Senile) Gait </label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder=" In older patients who have no neurologic disease  "></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="steppage">
+                                <label for="steppage" class="mx-2 form-check-label text_extra text-wrap"> Steppage
+                                    (Equine) Gait </label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="  Foot drop weakness of the dorsi flexors of the foot and toes. unilateral peroneal nerve palsy, L5 radiculopathy . bilateral in amyotrophic lateral sclerosis, Charcot-Marie-Tooth disease and other severe peripheral neuropathies"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="myopathic">
+                                <label for="myopathic" class="mx-2 form-check-label text_extra_1 text-wrap">Myopathic
+                                    (Waddling) Gait</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="  Hip girdle muscles are responsible for keeping the pelvis level when walking.  This gait is seen in patient with myopathies, such as muscular dystrophy  "></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="hyperkinetic">
+                                <label for="hyperkinetic" class="mx-2 form-check-label "> Hyperkinetic Gait </label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="  This gait is seen with certain basal ganglia disorders including Sydenham's chorea, Huntington's Disease and other forms of chorea, athetosis or dystonia."></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="thalamic">
+                                <label for="thalamic" class="mx-2 form-check-label "> Thalamic Astasia </label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder=" With unilateral thalamic lesions inability to stand or sit out of proportion to weakness or sensory loss, with a tendency to fall backward or to the side contralateral to the lesion"></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="antalgic">
+                                <label for="antalgic" class="mx-2 form-check-label "> Antalgic Gait </label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder=" Painful (antalgic) gait may occur if patient is protecting an injury to the foot, ankle, knee hips or pelvis "></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="arthrogenic">
+                                <label for="arthrogenic" class="mx-2 form-check-label "> Arthrogenic Gait </label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder=" Stiff hip or knee or ankle due to stiffness, laxity or deformityjoint related pathologies (examples of joint pathologies are osteoarthritis, hip joint problems such as avascular necrosis of the femoral head, rheumatoid arthritis, etc…) "></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="trendelenburg">
+                                <label for="trendelenburg" class="mx-2 form-check-label text-wrap text_extra">
+                                    Trendelenburg’s Gait </label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder=" This abnormal gait is due to gluteus medius weakness or paralysis."></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="lurching">
+                                <label for="lurching" class="mx-2 form-check-label "> Lurching Gait</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder=" Due to paralysis or weakness of the gluteus maximus "></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 gait">
+                            <div class="col-md-12">
+                                <input type="checkbox" class="form-check-input checkbox_input_gait" name="type1"
+                                    id="psoatic">
+                                <label for="psoatic" class="mx-2 form-check-label "> Psoatic Limp Gait</label>
+                            </div>
+                            <div class="col-md-9 info">
+                                <textarea class="form-control pt-1 pb-1" rows="6"
+                                    placeholder="  Due to psoas muscle spasm, and/ or edematous and/ or inflamed psoas bursa "></textarea>
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+
+
+                <!-- !end nerves -->
+                <div class="row mt-3 cerebellar">
+
+                    <label class="fw-bold">Cerebellar examination</label>
+                    
+                    <br>
+
+                    <div class="col-md-6">
+                        <div class="row flex-row justify-content-evenly">
+
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4">
+
+                                <div class="row">
+                                    <div class="col-md-2 checkbox-label">N</div>
+
+                                    <div class="col-md-2 checkbox-label">AbN</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item1 row flex-row justify-content-evenly">
+
+                            <div class="col-md-8">
+                                <p>1. Finger to Finger Test</p>
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <input type="checkbox" name="state" id="normal" class="form-check-input me-2">
+                                <!-- <label for="normal" class="form-check-label">Normal</label> -->
+
+
+
+                                <input type="checkbox" name="state" id="abnormal" class="form-check-input ">
+                                <!-- <label for="abnormal" class="form-check-label">Abnormal</label> -->
+
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="item2 row flex-row justify-content-evenly">
+
+                            <div class="col-md-8">
+                                <p>2. Finger to Nose Test</p>
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <input type="checkbox" name="state2" id="normal" class="form-check-input me-2">
+                                <!-- <label for="normal" class="form-check-label">Normal</label> -->
+
+
+
+                                <input type="checkbox" name="state2" id="abnormal" class="form-check-input ">
+                                <!-- <label for="abnormal" class="form-check-label">Abnormal</label> -->
+
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="item3 row flex-row justify-content-evenly">
+
+                            <div class="col-md-8">
+                                <p>3. Rapid Alternating Movement</p>
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <input type="checkbox" name="state3" id="normal" class="form-check-input me-2">
+                                <!-- <label for="normal" class="form-check-label">Normal</label> -->
+
+
+
+                                <input type="checkbox" name="state3" id="abnormal" class="form-check-input ">
+                                <!-- <label for="abnormal" class="form-check-label">Abnormal</label> -->
+
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="item4 row flex-row justify-content-evenly">
+
+                            <div class="col-md-8">
+                                <p>4. Tandem Gait</p>
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <input type="checkbox" name="state4" id="normal" class="form-check-input me-2">
+                                <!-- <label for="normal" class="form-check-label">Normal</label> -->
+                                <input type="checkbox" name="state4" id="abnormal" class="form-check-input ">
+                                <!-- <label for="abnormal" class="form-check-label">Abnormal</label> -->
+                            </div>
+                        </div>
+                        <div class="item5 row flex-row justify-content-evenly">
+
+                            <div class="col-md-8">
+                                <p>5. Heel to Chin Test</p>
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <input type="checkbox" name="state5" id="normal" class="form-check-input me-2">
+                                <!-- <label for="normal" class="form-check-label">Normal</label> -->
+                                <input type="checkbox" name="state5" id="abnormal" class="form-check-input ">
+                                <!-- <label for="abnormal" class="form-check-label">Abnormal</label> -->
+
+
+                            </div>
+
+                        </div>
+                        <div class="item6 row flex-row justify-content-evenly">
+
+                            <div class="col-md-8">
+                                <p>6. Rebound Phenomenon</p>
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <input type="checkbox" name="state6" id="normal" class="form-check-input me-2">
+                                <!-- <label for="normal" class="form-check-label">Normal</label> -->
+
+                                <input type="checkbox" name="state6" id="abnormal" class="form-check-input ">
+                                <!-- <label for="abnormal" class="form-check-label">Abnormal</label> -->
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6">
+                        <div class="row flex-row justify-content-evenly">
+
+                            <div class="col-md-8">
+                            </div>
+                            <div class="col-md-4">
+
+                                <div class="row">
+                                    <div class="col-md-2 checkbox-label">P</div>
+
+                                    <div class="col-md-2 checkbox-label">Abs</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item7 row flex-row justify-content-evenly">
+
+                            <div class="col-md-8">
+                                <p>7. Dyssynergia</p>
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <input type="checkbox" name="state7" id="present" class="form-check-input me-2">
+                                <!-- <label for="state7" class="form-check-label">Present</label> -->
+                                <input type="checkbox" name="state7" id="absent" class="form-check-input ">
+                                <!-- <label for="absent" class="form-check-label">Absent</label> -->
+
+
+                            </div>
+
+                        </div>
+                        <div class="item8 row flex-row justify-content-evenly">
+
+                            <div class="col-md-8">
+                                <p>8. Dysmetria</p>
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <input type="checkbox" name="state7" id="present" class="form-check-input me-2">
+                                <!-- <label for="state7" class="form-check-label">Present</label> -->
+
+
+
+                                <input type="checkbox" name="state7" id="absent" class="form-check-input ">
+                                <!-- <label for="absent" class="form-check-label">Absent</label> -->
+
+
+                            </div>
+
+                        </div>
+                        <div class="item9 row flex-row justify-content-evenly">
+
+                            <div class="col-md-8">
+                                <p>9. Dysarthria</p>
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <input type="checkbox" name="state7" id="present" class="form-check-input me-2">
+                                <!-- <label for="state7" class="form-check-label">Present</label> -->
+
+
+
+                                <input type="checkbox" name="state7" id="absent" class="form-check-input ">
+                                <!-- <label for="absent" class="form-check-label">Absent</label> -->
+
+
+                            </div>
+                        </div>
+                        <div class="item10 row flex-row justify-content-evenly">
+
+                            <div class="col-md-8">
+                                <p>10. Intention Tremors</p>
+
+                            </div>
+                            <div class="col-md-4">
+
+                                <input type="checkbox" name="state7" id="present" class="form-check-input me-2">
+                                <!-- <label for="state7" class="form-check-label">Present</label> -->
+
+
+
+                                <input type="checkbox" name="state7" id="absent" class="form-check-input ">
+                                <!-- <label for="absent" class="form-check-label">Absent</label> -->
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <!-- <ul class="dropdown-menu bg-white pe-2" aria-labelledby="dropdownMenuButton">
+                            <li>
+                                <div class="form-check">
+                                    <input type="checkbox" name="comange" id="co-mange1" class="form-check-input ">
+                                    <label for="co-mange1" class="form-check-label">Co-Management 1</label>
+            
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input type="checkbox" name="comange"  id="co-mange2" class="form-check-input ">
+                        <label for="co-mange2" class="form-check-label">Co-Management 2</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input type="checkbox"  id="co-mange3" name="comange" class="form-check-input ">
+                                    <label for="co-mange3" class="form-check-label">Co-Management 3</label>
+            
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input type="checkbox"  id="co-mange4" name="comange" class="form-check-input">
+                        <label for="co-mange4" class="form-check-label">Co-Management 4</label>
+   </div>
+                            </li>
+                            
+
+                        </ul> -->
+
+                    <!-- <textarea class="form-control pt-1 pb-1" rows="6"></textarea> -->
+
+
+
+                </div>
+
+
+
+                <div class="mt-3 back row justify-content-center align-self-center align-items-center mx-auto">
+                    <div class="back-img mb-3 d-flex">
+                        <img src="../images/motor_sensory.jpg" alt="motor sensory explanation" class="img-fluid">
+                    </div>
+
+
+                </div>
+
+
+                <div class="row">
+
+
+                    <div class="p-0 m-0 col-md-4">
+                        <h3 class="ms-2 ">Motor</h3>
+
+                    </div>
+                    <div class="p-0 m-0 col-md-4">
+                        <h3 class="text-center mb-0">Sensory</h3>
+
+                    </div>
+                </div>
+
+
+                <div class="row mt-3">
+
+
+                    <div class="col-md-2 ">
+
+                        <div class="col-md-4">
+
+
+                            <table class="table motor">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>R</th>
+                                        <th>L</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>C5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2"></td>
+                                        <td><input type="text" class="l-score-input" maxlength="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>C6</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2"></td>
+                                        <td><input type="text" class="l-score-input" maxlength="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>C7</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2"></td>
+                                        <td><input type="text" class="l-score-input" maxlength="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>C8</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2"></td>
+                                        <td><input type="text" class="l-score-input" maxlength="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>T1</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2"></td>
+                                        <td><input type="text" class="l-score-input" maxlength="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>L2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2"></td>
+                                        <td><input type="text" class="l-score-input" maxlength="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>L3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2"></td>
+                                        <td><input type="text" class="l-score-input" maxlength="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>L4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2"></td>
+                                        <td><input type="text" class="l-score-input" maxlength="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>L5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2"></td>
+                                        <td><input type="text" class="l-score-input" maxlength="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>S1</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2"></td>
+                                        <td><input type="text" class="l-score-input" maxlength="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>S2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2"></td>
+                                        <td><input type="text" class="l-score-input" maxlength="2"></td>
+                                    </tr>
+                                    <tr class="total-row">
+                                        <td>Total</td>
+                                        <td><input type="text" class="score-output-r" readonly></td>
+                                        <td><input type="text" class="score-output-l" readonly>
+                                        </td>
+                                        <td><input type="text" class="total-output" readonly></td>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row col-md-10 justify-content-evenly">
+                        <div class="col-md-2 me-4">
+
+                            <p class="text-start">Light</p>
+
+                            <!-- <caption class="text-end fw-bold">Sensory</caption> -->
+                            <table class="table light">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>R</th>
+                                        <th>L</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>C2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>C5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C6</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C7</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C8</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T1</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>T6</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T7</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T8</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T9</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T10</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                                    <tr>
+                                        <td>L1</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>L2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>L3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>L4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>L5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>S1</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+                                    <tr class="total-row">
+                                        <td>Total</td>
+                                        <td><input type="text" class="score-output-r" readonly></td>
+                                        <td><input type="text" class="score-output-l" readonly></td>
+
+                                        <td><input type="text" class="total-output" readonly></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="col-md-3 cortical">
+                            <p class="text-nowrap m-0">Cortical Sensation</p>
+                            <p class="text-nowrap p">(Localization, zpoint, Discrimination, Stereognosis,
+                                graphesthesia)</p>
+                            <table class="table sensation">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>R</th>
+                                        <th>L</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>C2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>C5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C6</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C7</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C8</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T1</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>T6</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T7</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T8</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T9</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T10</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                                    <tr>
+                                        <td>L1</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>L2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>L3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>L4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>L5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>S1</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+                                    <tr class="total-row">
+                                        <td>Total</td>
+                                        <td><input type="text" class="score-output-r" readonly></td>
+                                        <td><input type="text" class="score-output-l" readonly></td>
+
+                                        <td><input type="text" class="total-output" readonly></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="col-md-2 ms-5">
+                            <p class="text-start">Pin</p>
+                            <table class="table pin">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>R</th>
+                                        <th>L</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>C2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>C5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C6</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C7</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>C8</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T1</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>T6</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T7</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T8</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T9</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>T10</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                                    <tr>
+                                        <td>L1</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>L2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>L3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>L4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>L5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>S1</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S2</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S3</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S4</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>S5</td>
+                                        <td><input type="text" class="r-score-input" maxlength="2">
+                                        </td>
+                                        <td><input type="text" class="l-score-input" maxlength="2">
+                                        </td>
+                                    </tr>
+
+                                    <tr class="total-row">
+                                        <td>Total</td>
+                                        <td><input type="text" class="score-output-r" readonly></td>
+                                        <td><input type="text" class="score-output-l" readonly></td>
+
+                                        <td><input type="text" class="total-output" readonly></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-3 text-nowrap">
+                    <p>Deep Sensation</p>
+                    <table class="w-50 deep ms-3">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>RT</th>
+                                <th>LT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Shoulder Joint</td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td>Elbow Joint</td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td>Wrist</td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td>Fingers</td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td>Hib Joint</td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td>Knee Joint</td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td>Ankel Joint</td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td>Toes</td>
+                                <td><input type="checkbox"></td>
+                                <td><input type="checkbox"></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-10 mt-3">
+                        <label class="fw-bold">Special Test</label>
+                        <br>
+                        <textarea class="form-control pt-1 pb-1" rows="6"></textarea>
+                    </div>
+
+                </div>
+
+                <div class="row mt-3">
+
+
+                    <div class="col-md-8 mt-3">
+                        <label class="fw-bold">Reflex</label>
+                        <br>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p>Glabellar</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="number" name="glabellar" min="0" max="5">
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-nowrap">Jaw Reflex</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="number" name="jaw" min="0" max="5">
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-nowrap">Biceps C5,C6</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="number" name="biceps" min="0" max="5">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-nowrap">Triceps C6,C7,C8</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="number" name="triceps" min="0" max="5">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-nowrap" style="font-size: 14px;">Pectoralis C6,C7,C8</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="number" name="pectoralis" min="0" max="5">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-nowrap">Brachioradi C5,C6</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="number" name="brachioradi" min="0" max="5">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-nowrap">Knee L2,L3,L4</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="number" name="knee" min="0" max="5">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-nowrap">Ankle S1, S2</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="number" name="ankle" min="0" max="5">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-3">
+                                <label for="hoffman" class="form-label">Hoffman </label>
+                                <select class="rounded-2 w-100 ms-1 mb-2" name="hoffman" id="hoffman">
+                                    <!-- <option  disabled selected> Select</option> -->
+                                    <option value="present" class="hoffman">Present</option>
+                                    <option value="absent" class="hoffman">Absent</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="adductor" class="form-label">Adductor </label>
+                                <select class="w-100 ms-1 mb-2 rounded-2" name="adductor" id="adductor">
+                                    <!-- <option  disabled selected> Select</option> -->
+                                    <option value="present" class="adductor">Present</option>
+                                    <option value="absent" class="adductor">Absent</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="patellar" class="form-label">Patellar </label>
+                                <select class="rounded-2 w-100 ms-1 mb-2" name="patellar" id="patellar">
+                                    <!-- <option  disabled selected> Select</option> -->
+                                    <option value="present" class="patellar">Present</option>
+                                    <option value="absent" class="patellar">Absent</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="planter" class="form-label">Planter </label>
+                                <select class="rounded-2 w-100 ms-1 mb-2" name="planter" id="planter">
+                                    <!-- <option  disabled selected> Select</option> -->
+                                    <option value="flexion" class="planter">Flexion</option>
+                                    <option value="extension" class="planter">Extension</option>
+                                    <option value="equifocal" class="planter">Equifocal</option>
+
+                                </select>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-3 mt-3 reflex_img">
+                        <img src="../images/reflex.jpg" alt="values of reflex" class="img-fluid mt-5">
+                    </div>
+
+                    <div id="enlarged-view">
+                        <span id="close-enlarged">&times;</span>
+                        <div id="enlarged-content"></div>
+                    </div>
+
+
+
+                </div>
+                <div class="row mt-3">
+                    <label class="fw-bold">Tones</label>
+                    <br>
+
+                    <div class="col-md-4">
+                        <div class="d-flex flex-column text-nowrap">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Shoulder Adductors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Shoulder Abductors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Shoulder Flexors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Shoulder Extensors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="d-flex flex-column text-nowrap">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Elbow Flexors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Elbow Extensors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Wrist Flexors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Wrist Extensors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 tones_img">
+                        <img src="../images/tone.jpg" alt="Modified Ashworth Scale" class="img-fluid mt-1 ms-5">
+                    </div>
+                    <!-- <div id="enlarged-view">
+                        <span id="close-enlarged">&times;</span>
+                        <div id="enlarged-content"></div>
+                    </div> -->
+                    <div class="col-md-4">
+
+                        <div class="d-flex flex-column text-nowrap">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Hib Adductors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Hib Abductors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Hib Flexors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Hib Extensors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+
+                        <div class="d-flex flex-column text-nowrap">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Knee Flexors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Knee Extensors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p>Ankel Dorsiflexors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row ankel_exten">
+                                <div class="col-md-8">
+                                    <p>Ankel Dorsiextensors</p>
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="number" name="c6" min="0" max="4" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-6 mt-3">
+                        <label class="fw-bold">Sphincters</label>
+                        <br>
+                        <!-- <textarea class="form-control pt-1 pb-1" rows="6"></textarea> -->
+                        <select class="form-select my-2" id="sphincters">
+                            <!-- <option selected disabled>--Select--</option> -->
+                            <option>Intact</option>
+                            <option>Periceptenuy</option>
+                            <option>Retention</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+            </form>
+            <form class="mt-3 row medical_form__inputs item comments" style="display: none;">
+
+                <div class="col-md-10 mt-3">
+                    <label class="fw-bold">Comments</label>
+                    <br>
+                    <textarea class="form-control pt-1 pb-1" rows="6"></textarea>
+                </div>
+
+                <div class="col-md-10 mt-3">
+                    <label class="fw-bold">Comments</label>
+                    <br>
+                    <textarea class="form-control pt-1 pb-1" rows="6"></textarea>
+                </div>
+
+
+            </form>
+            <form class="mt-3 row medical_form__inputs item management" style="display: none;">
+                <h3 class="text-center">Management Plan</h3>
+                <div class="col-md-10 mt-3">
+                    <label class="fw-bold">Initial Diagnosis </label>
+                    <br>
+                    <textarea class="form-control pt-1 pb-1" rows="6"></textarea>
+                </div>
+
+                <!-- !!!feh mcq -->
+
+
+                <div class="col-md-10 mt-3">
+                    <label class="fw-bold">Initial Management Plan</label>
+
+                    <br>
+
+                    <div class="mt-3">
+                        <select name="management_plan" id="management_plan" class="form-select w-50">
+                            <option disabled selected>Select</option>
+                            <option value="surgical" name="Surgical">Surgical</option>
+                            <option value="conservative" name="Conservative">Conservative</option>
+                            <option value="surgery" name="Surgery">Surgery</option>
+                            <option value="surgery" name="Surgery">Surgery</option>
+                            <option value="surgery" name="Surgery">Surgery</option>
+
+                        </select>
+                    </div>
+                    <div class="management_plan mt-3">
+                        <textarea class="form-control pt-1 pb-1" rows="6"></textarea>
+
+                    </div>
+                </div>
+                <div class="col-md-10 mt-3">
+                    <label class="fw-bold">Goals & Outcomes</label>
+                    <br>
+                    <textarea class="form-control pt-1 pb-1" rows="6"></textarea>
+                </div>
+
+                <div class="mt-3 expected_time">
+
+                    <p class="fw-bold">Expected Time of the plan <span><input type="number" class="number_day"></span>
+                        Day</p>
+                    <div class="added">
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="add-btn btn text-white" id="add_row">
+                            <i class="fas fa-plus"></i> Add New Expected Time of the Plan
+                        </span>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-md-10 mt-3">
+                    <label class="fw-bold">Ordered Investigation</label>
+                    <br>
+                    <div class="dropdown w-50">
+                        <button class="btn btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            --Select--
+                        </button>
+                        <ul class="dropdown-menu bg-white ms-2" aria-labelledby="dropdownMenuButton">
+                            <li>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" value="ct" id="checkbox1">
+                                    <label class="form-check-label" for="checkbox1">
+                                        CT Brain
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" value="mri" id="checkbox2">
+                                    <label class="form-check-label" for="checkbox2">
+                                        MRI Brain
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" id="checkbox3">
+                                    <label class="form-check-label" for="checkbox3">
+                                        MRI Brain with Contrast
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkbox4">
+                                    <label class="form-check-label" for="checkbox4"> MRS</label>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkbox5">
+                                    <label class="form-check-label" for="checkbox5"> MRA & MRV</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkbox6">
+                                    <label class="form-check-label" for="checkbox6"> MCT Cerebral Angiography</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkbox7">
+                                    <label class="form-check-label" for="checkbox7"> MRI CSF Flowmetry</label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check mx-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkbox8">
+                                    <label class="form-check-label" for="checkbox8"> MR Spectroscopy</label>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="col-md-10 mt-3">
+                    <label class="fw-bold">Medical Treatment</label>
+                    <div class="table-container">
+
+                        <table class="table table-borderless mt-2 table-responsive" id="medicine_table">
+                            <thead>
+                                <tr>
+                                    <th class="text-nowrap">Medicine Name</th>
+                                    <th>Dosage</th>
+                                    <th>Frequency</th>
+                                    <th>Duration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select name="medicine_name" id="medicine_name" class="form-select">
+                                            <option disabled selected>Select</option>
+                                            <option value="name1" name="name1">Name 1</option>
+                                            <option value="name2" name="name2">Name 1</option>
+
+                                            <option value="name3" name="name3">Name 1</option>
+
+                                            <option value="name4" name="name4">Name 1</option>
+
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="number_dosage w-25"> <input type="text"
+                                            name="dosage_unit" id="dosage_unit" class="number_dosage_unit w-25"></td>
+                                    <td><input type="text" class="number_frequency w-50"></td>
+                                    <td><input type="text" class="number_duration w-50"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <select name="medicine_name" id="medicine_name" class="form-select">
+                                            <option disabled selected>Select</option>
+                                            <option value="name1" name="name1">Name 1</option>
+                                            <option value="name2" name="name2">Name 2</option>
+
+                                            <option value="name3" name="name3">Name 3</option>
+
+                                            <option value="name4" name="name4">Name 4</option>
+
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="number_dosage w-25"> <input type="text"
+                                            name="dosage_unit" id="dosage_unit" class="number_dosage_unit w-25"></td>
+                                    <td><input type="text" class="number_frequency w-50"></td>
+                                    <td><input type="text" class="number_duration w-50"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select name="medicine_name" id="medicine_name" class="form-select">
+                                            <option disabled selected>Select</option>
+                                            <option value="name1" name="name1">Name 1</option>
+                                            <option value="name2" name="name2">Name 1</option>
+
+                                            <option value="name3" name="name3">Name 1</option>
+
+                                            <option value="name4" name="name4">Name 1</option>
+
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="number_dosage w-25"> <input type="text"
+                                            name="dosage_unit" id="dosage_unit" class="number_dosage_unit w-25"></td>
+                                    <td><input type="text" class="number_frequency w-50"></td>
+                                    <td><input type="text" class="number_duration w-50"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select name="medicine_name" id="medicine_name" class="form-select">
+                                            <option disabled selected>Select</option>
+                                            <option value="name1" name="name1">Name 1</option>
+                                            <option value="name2" name="name2">Name 1</option>
+
+                                            <option value="name3" name="name3">Name 1</option>
+
+                                            <option value="name4" name="name4">Name 1</option>
+
+                                        </select>
+                                    </td>
+                                    <td><input type="text" class="number_dosage w-25"> <input type="text"
+                                            name="dosage_unit" id="dosage_unit" class="number_dosage_unit w-25"></td>
+                                    <td><input type="text" class="number_frequency w-50"></td>
+                                    <td><input type="text" class="number_duration w-50"></td>
+                                </tr>
+
+
+                            </tbody>
+
+
+                        </table>
+                    </div>
+
+                    <span class="add-btn btn text-white" id="add_row">
+                        <i class="fas fa-plus"></i> Add New Medicine
+                    </span>
+
+                </div>
+
+                <div class="row mt-3">
+                    <label class="fw-bold">Surgical Intervention</label>
+                    <br>
+                    <div class="mt-3 col-md-6">
+                        <label for="name" class="form-label">Operation Name</label>
+                        <select name="name_operation" id="name" class="form-select w-50">
+                            <option value="surgery">Surgery</option>
+                            <option value="surgery">Surgery</option>
+                            <option value="surgery">Surgery</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="other mt-3">
+                            <input type="text" name="other" id="other" class="form-control">
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 mt-3">
+                        <label for="date" class="form-label">Operation Date</label>
+                        <input type="date" id="date" class="form-control w-50">
+                    </div>
+
+                </div>
+
+                <div class="col-md-10 mt-3">
+                    <label class="fw-bold">Outcome of the plan</label>
+                    <br>
+                    <textarea class="form-control pt-1 pb-1" rows="4"></textarea>
+                </div>
+
+
+            </form>
+
+            <div class="row align-self-end align-items-end justify-content-end mt-4 mb-2 me-3">
+                <button type="submit" class="btn btn-save col-md-3 fs-4"
+                    onclick="window.location.href='patient_list.html'">Save</button>
+            </div>
+
+        </div>
+
+        <!-- ~~~~~~~~ Footer ~~~~~~~~ -->
+        <!-- <footer class="footer text-center my-4 mx-auto py-1 rounded-4 fixed-bottom">
+                <div class="container copyright">
+                    <div class="row">
+                        <div class="col-sm-12 my-3 bg-light fixed-bottom foot mx-auto rounded-4">
+                            <div class="copyright-box">
+                                <p>© Copyright. All Rights Reserved by MAG</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer> -->
+    </div>
+
+    <footer class="footer text-center my-4 mx-auto rounded-4 ">
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-sm-12 my-3 bg-light fixed-bottom foot-stock mx-auto rounded-4">
+                    <div class="copyright-box">
+                        <p>© Copyright. All Rights Reserved by MAG</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <nav class="navbar-side">
+
+        <ul class="nav-menu list-unstyled ">
+
+            <li class="nav-item mb-2 mt-5">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-video-camera pe-3" aria-hidden="true"></i> Videos
+                </p>
+
+            </li>
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-users pe-3" aria-hidden="true"></i>Meetings
+                </p>
+
+            </li>
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-globe pe-3" aria-hidden="true"></i>Conferences
+                </p>
+
+            </li>
+
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/sum.js"></script>
+    <script src="../js/show_hide.js"></script>
+    <script src="../js/slider.js"></script>
+    <script src="../js/newRow.js"></script>
+    <script src="../js/video_check.js"></script>
+
+</body>
+
+</html>

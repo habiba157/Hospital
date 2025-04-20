@@ -1,0 +1,1092 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* !GLOBAL */
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: hsla(186, 90%, 36%,0.2);
+    font-family: 'Cairo', sans-serif;
+    
+    overflow-x: hidden;
+    
+}
+.navbar-side {
+    position: fixed;
+    width: 12%;
+    height: 98vh;
+    color: #fff;
+    opacity: 0.85;
+    z-index: 122;
+    top: 0px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-radius: 15px;
+    padding-inline: 10px;
+}
+
+
+.navbar {
+    position: fixed;
+    width: 20%;
+    height: 98vh;
+    color: #fff;
+    opacity: 0.85;
+    z-index: 122;
+    top: 0px;
+    left: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-radius: 15px;
+    padding-inline: 10px;
+}
+
+.navbar .nav-menu {
+    background: hsl(202.82deg 39.66% 35.1%);
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    padding-block: 12px;
+    padding-inline: 20px;
+    position: absolute;
+    top: 5px;
+}
+
+.navbar-side .nav-menu {
+    background: hsl(202.82deg 39.66% 35.1%);
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    padding-block: 12px;
+    padding-inline: 20px;
+    position: absolute;
+    top: 5px;
+}
+
+.nav-item button {
+    width: 90%;
+}
+
+.navbar .hamburger {
+    display: none;
+}
+.navbar-side .hamburger {
+    display: none;
+
+}
+
+.navbar .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #949494;
+}
+
+.navbar-side .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #949494;
+}   
+/* #medicine_table th {
+    width: 50px !important;
+}
+#medicine_table tbody tr td {
+    width: 50px !important;
+} */
+
+#medicine_table {
+    table-layout: fixed;
+    width: 80%; /* Adjust as needed */
+}
+
+#medicine_table th:nth-child(1),
+#medicine_table td:nth-child(1) {
+    width: 35%; /* Adjust column widths */
+}
+
+#medicine_table th:nth-child(2),
+#medicine_table td:nth-child(2) {
+    width: 25%;
+}
+
+#medicine_table th:nth-child(3),
+#medicine_table td:nth-child(3) {
+    width: 25%;
+}
+#medicine_table th:nth-child(4),
+#medicine_table td:nth-child(4) {
+    width: 30%;
+}
+
+#medicine_table input,
+#medicine_table select {
+    width: 90%; /* Adjust input/select widths */
+    font-size: 14px; /* adjust font size */
+    padding: 2px; /* adjust padding */
+}
+
+#medicine_table td{
+    padding: 5px; /* adjust cell padding */
+}
+
+#medication_table {
+    table-layout: fixed;
+    width: 80%; /* Adjust as needed */
+}
+
+#medication_table th:nth-child(1),
+#medication_table td:nth-child(1) {
+    width: 35%; /* Adjust column widths */
+}
+
+#medication_table th:nth-child(2),
+#medication_table td:nth-child(2) {
+    width: 35%;
+}
+
+#medication_table th:nth-child(3),  
+#medication_table td:nth-child(3) {
+    width: 30%;
+}
+
+#medication_table input,
+#medication_table select {
+    width: 90%; /* Adjust input/select widths */
+    font-size: 14px; /* adjust font size */
+    padding: 2px; /* adjust padding */
+}
+
+#medication_table td{
+    padding: 5px; /* adjust cell padding */
+}
+
+
+/* #medicine_table #medicine_name {
+    width: 100px;
+
+} */
+/* .speech .text_extra_1{
+    font-size: 10.5px;
+    font-weight: 700;
+} */
+/* .speech .text_extra__1{
+    font-size: 9.5px;
+    font-weight: 700;
+} */
+/* .speech .text_extra{
+    font-size: 14px;
+} */
+
+/* 
+.gait .text_extra{
+    font-size: 13px;
+    /* font-weight: 600; 
+
+} */
+/* .gait .text_extra_1{
+    font-size: 11px;
+    font-weight: 600;
+} */
+
+.gait{
+    font-size: 16px;
+}
+
+.progress__notes .dropdown{
+    width: 100%;
+}
+.progress__notes .dropdown-menu input{
+    margin-left: 0.1px;
+}
+.progress__notes .dropdown-menu label{
+
+    margin-left: 2px;
+    font-weight: normal;
+
+}
+@media print {
+    .navbar{
+        display: none;
+    }
+    .navbar-side{
+        display: none;
+    }
+    .navbar-side{
+        display: none;
+    }
+    .navbar-side .nav-menu{
+        display: none;
+    }
+    footer{
+        display: none;
+    }
+}
+@media only screen and (max-width: 768px) {
+    /* .navbar-side{
+        width: 9%;
+    } */
+   
+    .navbar .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 5px;
+        flex-direction: column;
+        width: 270px;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .navbar .nav-menu.active {
+        left: 0;
+    }
+
+    .navbar-side .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 5px;
+        flex-direction: column;
+        width: 170px;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+    .navbar-side .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-item {
+        margin: 5px;
+    }
+
+    .nav-item button {
+        width: 50%;
+    }
+
+    .navbar .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .navbar .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .navbar .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navbar-side .hamburger {
+        display: block;
+        cursor: pointer;
+        margin-top: 10px;
+
+    }
+
+    .navbar-side .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar-side .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .navbar-side .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+}
+
+
+
+.logo-container {
+    position: relative;
+    top: 0px;
+    left: 5px;
+
+
+}
+
+.logo {
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    color: #fff;
+}
+
+.table-container {
+    height: 200px; /* Adjust the height as needed */
+    overflow-y: scroll;
+  }
+
+.Patients_status__text_extra a {
+    font-size: 12px;
+    font-weight: 600;
+    color: black;
+    text-decoration: none;
+}
+
+.dashboard-btn--color {
+    color: #00a3a3;
+    font-weight: 600;
+    width: 50%;
+}
+
+.dashboard-btn--color:hover {
+    background-color: #00a3a3 !important;
+    color: white;
+    transition: all .3s ease-in-out;
+}
+
+input[type="radio"]:checked+span {
+    color: #00a3a3;
+}
+
+.navbar-side .sidenav-item {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.navbar .sidenav-item {
+    font-size: 12px;
+    margin: 0px 0px 8px;
+    /* margin-bottom: 10px; */
+}
+.Patients__status,
+.staff__status,
+.rooms__status {
+    background-color: white;
+    border-radius: 0.5rem;
+    color: black;
+    width: 100%;
+
+}
+
+.Patients_status__text a,
+.staff_status__text a,
+.rooms_status__text a {
+    color: black;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.Patients_status__text a:hover,
+.staff_status__text a:hover,
+.rooms_status__text a:hover,
+.Patients_status__text_extra a:hover {
+    color: rgb(104, 1, 1);
+    font-size: 14px;
+    font-weight: 800;
+    transition: all .3s ease-in-out;
+}
+
+.patient__info {
+    width: 80%;
+    position: absolute;
+    left: 12%;
+    top: 8px;
+    transition: margin-left .5s;
+}
+
+.search__wrapper {
+    width: 83%;
+    border-radius: 0.5rem;
+}
+
+.searcher {
+    border: 2px solid rgb(221, 221, 221);
+    border-radius: 20px;
+    width: 30%;
+}
+
+.wrapper_left {
+    width: 100%;
+}
+
+.wrapper_left ul {
+    width: 90%;
+}
+
+.wrapper_left ul li {
+
+    border-radius: 10px;
+    border: 1px solid #457b9d;
+    margin-bottom: 5px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+    position: relative;
+    
+    overflow: hidden;
+    width: 18%;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.wrapper_left ul li p {
+    margin: auto;
+}
+.wrapper_left ul li.active {
+    color: #fff;
+    background-color: hsl(202.82deg, 39.66%, 35.1%);
+    transition: all 0.2s ease;
+}
+/* #oedema{
+    margin-left: 70px;
+} */
+.patient__form {
+    width: 83%;
+    border-radius: 0.5rem;
+}
+.btn-next{
+    background-color: #457b9d;
+    color: #fff;
+    width: 13%;
+}
+
+.btn-next:hover{
+    background-color: #fff;
+    border: 1px solid #457b9d;
+}
+.btn-green{
+    background-color: #3eb157cc;
+    color: #fff;
+}
+
+.btn-green:hover{
+    background-color: #fff;
+    outline: 1px solid #3eb157cc;
+    color: #3eb157cc;
+}
+.list_patient .btn-danger:hover{
+    color: darkred;
+    background-color:#fff ;
+    outline: 1px solid darkred;
+
+}
+.searcher::placeholder {
+    color: gray;
+}
+
+.male__image {
+    border: 1px solid;
+    width: 30px;
+    height: 30px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.patient_form__inputs {
+    width:90%;
+}
+
+textarea {
+    font-size: 14px;
+}
+
+.patient_form__inputs input {
+    border-radius: 5px;
+    border: 1px solid rgb(202, 202, 202);
+}
+
+.initial_diagnoses textarea {
+    resize: none;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 5px;
+}
+
+.medical_form__inputs {
+    width: 90%;
+}
+
+.medical_form__inputs input {
+    border-radius: 5px;
+    border: 1px solid rgb(202, 202, 202);
+}
+
+.note_previous_illness input {
+    width: 100% !important;
+    height: 150px !important;
+}
+
+.note_complaints input {
+    width: 100% !important;
+    height: 80px !important;
+}
+
+.note_operative input {
+    width: 100% !important;
+    height: 150px !important;
+}
+
+.file_upload input {
+    display: none;
+
+}
+textarea {
+
+    resize: none;
+    font-size: 12px;
+}
+
+
+.back-img img{
+    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+
+
+h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.deep{
+    border:none;
+    border-collapse: collapse !important;
+    background-color: transparent !important;
+
+}
+/* .deep input{
+    width: 80%;
+} */
+ .deep input[type="checkbox"]{
+     width: 20px !important;
+     height: 20px !important;
+     
+ }
+.deep th, .deep td {
+    border: none;
+}
+.deep thead tr th{
+    background-color: transparent !important;
+
+}
+.motor, .light,.sensation, .pin {
+    width: 10% !important;
+    border-collapse: collapse;
+}
+.cortical .p {
+    font-size: 8.6px;
+    text-align: center;
+    width: fit-content;
+    margin: 0px;
+}
+.ankel_exten p{
+
+    font-size: 15px;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    
+}
+th {
+    background-color: #fff;
+}
+/* .pin{
+    margin-top: 2.1rem !important;
+} */
+ .l-score-input, .r-score-input, .score-output-l , .score-output-r, .total-output {
+    width: 20px !important;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+.total-row {
+    font-weight: bold;
+
+}
+
+.vital_number input{
+    width: 90px !important;
+}
+.number_day {
+    width: 70px !important;
+}
+.check .upload {
+    display: block;
+    position: relative;
+    border: dashed 1px rgb(129, 126, 126);
+    border-radius: 0.5rem;
+    padding-block: 5rem;
+    padding-inline: 1rem;
+    text-align: center;
+    cursor: pointer;
+    width: 15.5em;
+    color: #063c5e;
+
+
+    background-color: hsla(186, 90%, 36%,0.2);
+    
+
+}
+#video_check .upload{
+    width: 12.8em !important;
+    height: 62px !important;
+}
+
+.enlarged-view {
+    
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 999999; 
+}
+
+.enlarged-content {
+    display: flex; /* Use flexbox for centering content within */
+    justify-content: center;
+    align-items: center;
+    max-width: 90%; /* Limit content size */
+    max-height: 90%;
+}
+
+.enlarged-content img,
+.enlarged-content video {
+    max-width: 100%; /* Ensure content fits within its container */
+    max-height: 100%;
+}
+
+.close-enlarged {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 24px; /* Make close button more visible */
+}
+/* #enlarged-view {
+    
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 999999; 
+}
+
+#enlarged-content {
+    display: flex; /* Use flexbox for centering content within *
+    justify-content: center;
+    align-items: center;
+    max-width: 90%; /* Limit content size *
+    max-height: 90%;
+}
+
+#enlarged-content img,
+#enlarged-content video {
+    max-width: 100%; /* Ensure content fits within its container *
+    max-height: 100%;
+}
+
+#close-enlarged {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 24px; /* Make close button more visible *
+} */
+
+#enlarged-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999999;
+}
+
+#enlarged-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+#close-enlarged {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 28px;
+}
+.attachments .upload {
+    display: block;
+    position: relative;
+    border: dashed 1px rgb(129, 126, 126);
+    border-radius: 0.5rem;
+    padding-block: 5rem;
+    padding-inline: 1rem;
+    text-align: center;
+    cursor: pointer;
+    width: 14em;
+    /* color: hsl(202.82deg 39.66% 35.1%); */
+    color: #063c5e;
+    background-color: hsla(186, 90%, 36%,0.2);
+
+
+}
+/* .lab-link {
+    margin-left: 100px;
+} */
+.lab-link .upload {
+    display: block;
+    position: relative;
+    border: dashed 1px rgb(129, 126, 126);
+    border-radius: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    width: 10em;
+    /* margin-left: 50px; */
+    color: #063c5e;
+
+
+}
+.lab-link .upload a{
+    text-decoration: none;
+    color: #063c5e;
+
+}
+.room select {
+    border-radius: 0.5rem;
+    width: 50%;
+
+}
+
+.book select {
+    border-radius: 0.5rem;
+    width: 50%;
+
+}
+.footer{
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    width: 82%;
+    height: 30px;
+    
+   
+}
+.copyright{
+    
+    width: 100%;
+   
+    text-align: center;
+   
+    
+}
+.foot{
+    width: 65%;
+    left: 15%;
+    bottom: 0px;
+    box-shadow: 0px 0px 10px 0px #9d9d9d;
+}
+footer {
+    font-weight: 500;
+    font-size: 15px;
+    width: 80%;
+    
+}
+.copyright{
+    
+    width: 100%;
+    
+    text-align: center;
+    border-radius: 20px;
+    
+}
+
+@media screen and (min-width:989px) {
+
+    .sidenav-item {
+        font-size: 12px;
+    }
+
+    .side_bar__container {
+        display: flex;
+
+    }
+
+    
+
+
+
+    .male__image {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+    }
+
+
+
+}
+
+@media screen and (max-width:989px) {
+
+
+
+    .sidenav-item {
+        font-size: 10px;
+    }
+
+    .btn-next{
+       
+        width: 35%;
+    }
+
+    .patient__info {
+        width: 85vw;
+        left: 50%;
+    }
+
+.patient_form__inputs {
+    font-size: 11px;
+}
+.medical_form__inputs {
+    font-size: 13px;
+}
+
+.file_upload {
+
+    display: flex;
+    flex-direction: column;
+}
+.attachments .upload,
+.check .upload{
+    width:10em ;
+}
+/* .lab-link{
+    margin-left: 90px;
+} */
+
+.laboratory_header{
+    font-size:12px ;
+}
+.lab .lab-table td{
+    font-size: 12px;
+}
+.hospital-row{
+    width: 13em;
+}
+    .Patients__status,
+    .staff__status,
+    .rooms__status {
+        width: 75%;
+    }
+
+    .Patients_status__text,
+    .staff_status__text,
+    .rooms_status__text,
+    .Patients_status__text_extra {
+
+        font-size: 10px;
+    }
+
+    .logo {
+
+        left: 10px;
+    }
+
+    .logo-extra {
+        left: 10px;
+    }
+
+    .wrapper_left ul {
+        width: 100%;
+    }
+
+    .wrapper_left ul li {
+        font-size: 8px;
+        font-weight: 200;
+        width: 100%;
+        padding: 10px 10px;
+    }
+
+    .wrapper_left {
+        width: 25vw;
+
+    }
+
+    .patient__form h4,
+    .patient__form h5 {
+        font-size: 10px;
+    }
+
+    .status {
+        font-size: 10px;
+
+    }
+
+    .searcher {
+        width: 50%;
+    }
+
+
+
+
+}
+
+/* @media screen and (max-width:989px ), screen and (min-height: 1000px) {
+
+    .side_bar__container {
+        width: 220px;
+        
+    }
+    .patient__info {
+        width: 85vw;
+        left:25% ;
+    }
+
+} */
+/* @media (max-width: 768px) {
+    .navbar {
+      opacity: 0.95;
+    }
+  
+    .navbar-container input[type="checkbox"] {
+      display: flex;
+    }
+  
+    .navbar-container .hamburger-lines {
+        display: flex;
+    }
+    .navbar-container {
+      display: flex;
+      position: relative;
+      height: 64px;
+    }
+  
+    .navbar-container input[type="checkbox"] {
+      position: absolute;
+      display: flex;
+      height: 32px;
+      width: 30px;
+      top: 20px;
+      left: 20px;
+      z-index: 5;
+      opacity: 0;
+    }
+  
+    .navbar-container .hamburger-lines {
+      display: flex;
+      height: 23px;
+      width: 35px;
+      position: absolute;
+      top: 17px;
+      left: 20px;
+      z-index: 2;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    .navbar-container .hamburger-lines .line {
+      display: flex;
+      height: 4px;
+      width: 100%;
+      border-radius: 10px;
+      background: #333;
+    }
+  
+    .navbar-container .hamburger-lines .line1 {
+      transform-origin: 0% 0%;
+      transition: transform 0.4s ease-in-out;
+    }
+  
+    .navbar-container .hamburger-lines .line2 {
+      transition: transform 0.2s ease-in-out;
+    }
+  
+    .navbar-container .hamburger-lines .line3 {
+      transform-origin: 0% 100%;
+      transition: transform 0.4s ease-in-out;
+    }
+  
+    .navbar .menu-items {
+      padding-top: 100px;
+      
+      height: 100vh;
+      max-width: 300px;
+      transform: translate(-150%);
+      display: flex;
+      flex-direction: column;
+      margin-left: -40px;
+      padding-left: 50px;
+      transition: transform 0.5s ease-in-out;
+      
+    }
+  
+    .navbar .menu-items li {
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+  
+    .navbar-container input[type="checkbox"]:checked ~ .menu-items {
+      transform: translateX(0);
+    }
+  
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+      transform: rotate(35deg);
+    }
+  
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+      transform: scaleY(0);
+    }
+  
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+      transform: rotate(-35deg);
+    }
+}   */

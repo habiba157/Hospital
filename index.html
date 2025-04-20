@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <!-- ! link for bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- ! link for font Awesome -->
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <!-- ! link for style -->
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- ! link for cairo google fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+    <!-- !link for poppins google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body cz-shortcut-listen="true">
+    <div class="container my-5 text-center">
+        
+        <div class="group row d-flex flex-row m-auto w-75 p-5 bg-light">
+            <div class="col-md-5">
+                <div class="float-start">
+                    <h3 class="fw-bolder text-start">Login</h3>
+                    <p class="login_paragraph text-capitalize">Pls Enter Your email and password</p>
+                </div>
+                <div class="clearfix"></div>
+    
+            </div>
+            <div class="col-md-7">
+                <div class="float-end w-100">
+                    <div class="col-md-6 w-100">
+                        <input id="signinEmail" class="form-control col-md-3 my-3" placeholder="user@admin.com" type="text">
+        
+                    </div>
+                    
+                    <div class="position-relative col-md-6 w-100">
+                        <input id="signinPassword" class="form-control my-3 col-md-3" placeholder="****************"
+                            type="password">
+                        <span><i id="toggler" class="far fa-eye"></i></span>
+                    </div>
+                    <p id="incorrect"></p>
+        
+                    <div class="d-flex align-self-start">
+                        <button onclick="login()" class="btn btn-info w-25 my-3 text-center">Login</button>
+                   
+                    </div>
+                     <!-- <p class="text-black login_paragraph">Don’t have an account? <a class="signup" href="pages/signup.html">Sign Up</a></p> -->
+        
+                </div>
+                <div class="clearfix"></div>
+               
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/login.js"></script>
+
+
+</body>
+
+</html>

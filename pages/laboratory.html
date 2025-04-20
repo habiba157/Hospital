@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Management</title>
+    <!-- ! link for bootstrap css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- ! link for font Awesome -->
+    <link rel="stylesheet" href="../css/all.min.css">
+    <!-- ! link for style -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/patient_followup_specific.css">
+    <link rel="stylesheet" href="../css/laboratory.css">
+    <!-- ! link for cairo google fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+    <!-- !link for poppins google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="position-relative">
+    <!-- & side navbar -->
+    <nav class="navbar">
+
+        <ul class="nav-menu list-unstyled">
+            <li class="nav-item mb-5">
+                <div class="logo-container">
+                    <a href="/" class="d-flex align-items-start pb-1 me-2 text-decoration-none">
+                        <span class="d-inline-block text-capitalize logo ">Neurosurgery Department</span>
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-home pe-3" aria-hidden="true"></i> Dashboard
+                </p>
+                <button onclick="location.href='dashboard.html'" class="btn bg-light rounded-pill dashboard-btn--color d-flex justify-content-center" onclick="location.href='dashboard.html'">
+                    Dashboard
+                </button>
+            </li>
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-plus-square pe-3" aria-hidden="true"></i>Patients
+                </p>
+                <div class="Patients__status bg-light py-1 px-3">
+                    <p class="mb-1 Patients_status__text">
+                        <a href="patient_list.html">All Patients</a>
+                    </p>
+                    <p class="mb-1 Patients_status__text">
+                        <a href="clinics.html">
+                            Add new patient
+                        </a>
+                    </p>
+
+                    <p class="mb-1 Patients_status__text_extra" data-role="both">
+                        <a href="patient_exit_cards.html">
+                            Patients Followup 
+
+                        </a>
+                    </p>
+                    <p class="mb-1 Patients_status__text_extra role-based" data-role="both">
+                        <a href="tomorrow_list.html">
+                            Tomorrow List
+
+                        </a>
+                    </p>
+                </div>
+            </li>
+             <li class="nav-item mb-2 role-based" data-role="admin">
+                    <p class="d-flex align-items-center sidenav-item">
+                        <i class="fa fa-users pe-3" aria-hidden="true"></i>Staff
+                    </p>
+                    <div class="staff__status bg-light py-1 px-3">
+                        <p class="mb-1 staff_status__text"><a href="users_list.html">All Users</a></p>
+                        <p class="mb-1 staff_status__text"><a href="user_info.html">Add new User</a></p>
+                        <p class="mb-1 staff_status__text"><a href="/">Attendance</a></p>
+
+                    </div>
+                </li>
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-hospital pe-3" aria-hidden="true"></i>Rooms
+                </p>
+                <div class="rooms__status bg-light py-1 px-3">
+                    <p class="mb-1 rooms_status__text"><a href="rooms_list.html">
+                            All Rooms
+                        </a></p>
+                    <p class="mb-1 rooms_status__text">
+                        <a href="add_room.html">
+                            Add new Room
+                        </a>
+                    </p>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-hospital pe-3" aria-hidden="true"></i>Stock
+                </p>
+                <div class="rooms__status bg-light py-1 px-3">
+                    <p class="mb-1 rooms_status__text"><a href="stock_list.html">
+                            All Stock
+                        </a></p>
+                    <p class="mb-1 rooms_status__text">
+                        <a href="add_stock.html">
+                            Add new Stock
+                        </a>
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- & end side navbar  -->
+
+
+    <!-- * start main content -->
+    <div class="patient__info me-4 ms-4 mb-5 col-md-9 ">
+        <div class="d-flex justify-content-between search__wrapper mx-auto bg-light px-2 pt-2 pb-2">
+            <input type="search" class="ps-2 py-2 searcher" placeholder="search" />
+
+            <div class="d-flex justify-content-between align-items-center">
+                <i class="fa fa-bell" aria-hidden="true"></i>
+                <p class="language border border-secondary rounded-1 px-2 mb-0 mx-2">
+                    AR
+                </p>
+                <i class="fa fa-male male__image" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="patient__form mx-auto mt-3 bg-light px-2 py-2">
+            <div class="d-flex laboratory_header">
+                <div class="form-header">
+
+                    <div class="form-row">
+                        <div class="form-field col-md-4">
+                            <label for="patient-name">Patient name:</label>
+                            <input type="text" id="patient-name">
+                        </div>
+                        <div class="form-field col-md-4">
+                            <label for="date-of-birth">Date of birth:</label>
+                            <input type="date" id="date-of-birth">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field col-md-3">
+                            <label for="physician">Physician/Practitioner:</label>
+                            <input type="text" id="physician">
+
+                        </div>
+                        <div class="form-field col-md-3">
+                            <label for="procedure-date">Procedure date/time:</label>
+                            <input type="date" id="procedure-date">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field col-md-3">
+                            <label for="mailing-address">Mailing Address:</label>
+                            <input type="email" id="mailing-address">
+                        </div>
+                        <div class="form-field col-md-2">
+                            <label for="fax">Fax #</label>
+                            <input type="text" id="fax">
+                        </div>
+                        <div class="form-field col-md-2">
+                            <label for="phone">Phone #</label>
+                            <input type="tel" id="phone">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-field col-md-1">
+                            <label for="routine">Routine</label>
+                            <input type="text" id="routine">
+                        </div>
+                        <div class="form-field col-md-1">
+                            <label for="stat">Stat</label>
+                            <input type="text" id="stat">
+                        </div>
+                        <div class="form-field col-md-2">
+                            <label for="standing-order">Standing order</label>
+                            <input type="text" id="standing-order">
+                        </div>
+                        <div class="form-field col-md-1">
+                            <label for="from">From</label>
+                            <input type="text" id="from">
+                        </div>
+                        <div class="form-field col-md-1">
+                            <label for="to">To</label>
+                            <input type="text" id="to">
+                        </div>
+                        <div class="form-field col-md-1">
+                            <label for="frequency">Frequency</label>
+                            <input type="text" id="frequency">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="w-100 mb-3 text-muted fw-lighter" />
+          
+
+             <div class=" mt-2 lab w-100">
+
+                 <table class="lab-table table-hover">
+            <thead>
+                <tr class="row">
+                    <th class="test">Test</th>
+                    <th class="icd-code-th">Result</th>
+                    <th class="col-1">CPT</th>
+                    <th class="space"> </th>
+                    <th class="test">Test</th>
+                    <th class="icd-code-th">Result</th>
+                    <th class="col-1">CPT</th>
+                    <th class="space"> </th>
+                    <th class="test">Test</th>
+                    <th class="icd-code-th">Result</th>
+                    <th class="col-1">CPT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Albumin</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82040</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> FSH</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">83001</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Renal panel</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">80069</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Alk Phos</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84075</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> GGT</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82977</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Retic count</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">85044</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Amylase</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82150</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Glucose, fasting</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82947</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> RF</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">86430</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> ANA</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">86038</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> HCG, qual</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84703</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> RPR</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">86592</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> ALT</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84460</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> HCG, quant</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84702</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Sed rate (ESR)</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">85651</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> AST</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84450</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Hemoglobin</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">85014</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Sodium</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84295</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> B12</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82607</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Hematocrit</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">85018</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> T3 free</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84481</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Bili, neo profile</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82247<br>82248</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Hep A AB, IGM</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">86709</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> T4 free</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84439</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Bili, direct</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82248</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Hep B Surface Ag</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">87340</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Tegretol Carbamazepine</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">80156</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Bili, total</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82247</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Hep B core AB, IGM</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">86705</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Total protein</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84155</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> BMP</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">80048</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Hep C AB</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">86803</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Triglycerides</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84478</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> BTNP</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">83880</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Hep panel, acute</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">80074</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> TSH</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84443</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> BUN</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84520</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> HGB A1C</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">83036</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Type & screen</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">86090<br>86901<br>86850</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> CA 125</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">86304</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> HIV 1 Ab reflex</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">86701</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Uric acid</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84550</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Calcium</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82310</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Homocysteine</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">83090</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Valproic acid</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">80164</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> CBC w/diff</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">85025</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Influenza A+B</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">87804x2</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Creatinine clearance<br>24 hr. Ht __ Wt __</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82575</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> CBC, no diff</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">85027</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Insulin level</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">83525</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Protein, UR 24 hr.</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84156</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> CEA</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82378</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Iron</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">83540</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Microalbumin, urine</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82043</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Chloride</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82435</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Iron w/ TIBC</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">83540<br>83550</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Protein/creatinine<br>Ratio, urine</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84156<br>82570<br>81001</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Cholesterol, Total</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82465</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Lipase</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">83690</td>
+                    <td class="space"> </td>
+                    <td class="col-md-4">
+                        <div class="w-100">
+                            <p>Type of urine collection :</p>
+
+                            <div class="d-flex flex-row">
+                                <input type="text" class="icd-code">
+                                <label for="" class="form-check-label">Voided</label>
+
+
+                                <input type="text" class="icd-code">
+                                <label for="" class="form-check-label">Clean Catch</label>
+
+                                <input type="text" class="icd-code">
+                                <label for="" class="form-check-label">Cath</label>
+                            </div>
+                            <p class="fst-italic">Cath must schedule in advance</p>
+                        </div>
+                    </td>
+                    <!--  -->
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> CK (CPK) total</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82550</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Lipid profile</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">80061</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> UA, dipstick only</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">81003</td>
+                    <!--  -->
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> CK w/ ISO if ind.</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82550</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Liver profile</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">80076</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> UA reflex microscopic</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">81003</td>
+                    <!--  -->
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> CMP</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">80053</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Magnesium (Mg)</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">83735</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> UA with microscopic</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">81001</td>
+                    <!--  -->
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Creatinine</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82565</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Mono screen</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">86308</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Urine culture</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">87086</td>
+                </tr>
+                <!-- ************ -->
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Culture, stool</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">87045<br>87046x3</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Occult blood x__, screen</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82270</td>
+                    <td class="space"> </td>
+                   
+                        <td  class="col-md-4 hospital-row bg-dark-subtle">HOSPITAL ONLY</td>
+                    
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Culture wound</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">87070</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Occult blood x__, diag</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82272</td>
+                    <td class="space"> </td>
+
+                    <td class="test"><input type="checkbox" class="checkbox"> RSV</td>
+                                <td class="icd-code"><input type="text" class="icd-code"></td>
+                                <td class="col-1">86756</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Culture, throat</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">87081</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> OCP</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">87177</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Bordetella pertussis cult</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">87081</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> CRP</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">86140</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> PKU</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84030</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Bordetella pertussis DFA</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">87265</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> CRP, high</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">86141</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Platelet count</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">85049</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Hormonal Profile</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">00000</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Digoxin</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">80162</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Potassium</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84132</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> LH</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">00000</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Dilantin</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">80185</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Progesterone</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84144</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> GH</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">00000</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Electrolytes</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">80051</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> PSA, diag</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">84153</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> ACTH</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">00000</td>
+                </tr>
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Ferritin</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82728</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> PSA, screen</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">G0103</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Cortisol AM</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">00000</td>
+                </tr>
+                
+                <tr class="row">
+                    <td class="test"><input type="checkbox" class="checkbox"> Folate</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">82746</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> PTT</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">85610</td>
+                    <td class="space"> </td>
+                    <td class="test"><input type="checkbox" class="checkbox"> Cortisol PM</td>
+                    <td class="icd-code"><input type="text" class="icd-code"></td>
+                    <td class="col-1">00000</td>
+                </tr>
+            </tbody>
+        </table>
+
+            </div>
+
+            <div class="row mt-3">
+
+
+
+                <div class="col-md-5 align-items-center d-inline-flex">
+
+                    <label for="physician">Physician/Practitioner Name:</label>
+                    <input type="text" id="physician" class="border-0 bg-transparent border-bottom border-dark">
+
+
+                </div>
+                <div class="col-md-4 d-inline-flex align-items-center">
+
+
+                    <label for="date-of-birth">Date of birth :</label>
+                    <input type="date" id="date-of-birth" class="border-0 bg-transparent border-bottom border-dark">
+
+                </div>
+                <div class="col-md-2 d-inline-flex align-items-center">
+                    <label for="tests" class="text-nowrap">No. Of Tests :</label>
+                    <input type="number" id="tests" class="border-0 bg-transparent border-bottom border-dark w-25">
+                </div>
+
+
+
+            </div>
+
+             
+        <div class="row align-self-end align-items-end justify-content-end me-4 mt-4">
+            <button type="submit" class="btn btn-save btn-back col-md-3 fs-4" onclick="goBack()">Save</button>
+        </div>
+
+        </div>
+       
+    </div>
+
+    <!-- ~~~~~~~~ Footer ~~~~~~~~ -->
+
+    <footer class="footer text-center my-4 mx-auto rounded-4 ">
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-sm-12 my-3 bg-light fixed-bottom foot-stock mx-auto rounded-4" >
+                    <div class="copyright-box">
+                        <p>© Copyright. All Rights Reserved by MAG</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ~~~~~~~~ End of Footer ~~~~~~~~ -->
+
+
+
+    <nav class="navbar-side">
+
+        <ul class="nav-menu list-unstyled ">
+
+            <li class="nav-item mb-2 mt-5">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-video-camera pe-3" aria-hidden="true"></i> Videos
+                </p>
+
+            </li>
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-users pe-3" aria-hidden="true"></i>Meetings
+                </p>
+
+            </li>
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-globe pe-3" aria-hidden="true"></i>Conferences
+                </p>
+
+            </li>
+
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/laboratory.js"></script>
+</body>
+
+</html>

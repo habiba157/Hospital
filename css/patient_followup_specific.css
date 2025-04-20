@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap");
+
+
+
+.navbar-side {
+    position: fixed;
+    width: 12%;
+    height: 98vh;
+    color: #fff;
+    opacity: 0.85;
+    z-index: 122;
+    top: 0px;
+    right: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    border-radius: 15px;
+    padding-inline: 10px;
+
+
+
+}
+
+.form-header {    
+    
+    margin: 0 auto;
+}
+.facility-info {
+    margin-bottom: 10px;
+}
+.form-row {
+    display: flex;
+    
+    margin-block: 5px;
+}
+.form-field {
+    /* flex: 1; */
+    margin-right: 5px;
+}
+.form-field:last-child {
+    margin-right: 0;
+}
+.laboratory_header label {
+    font-weight: bold;
+}
+.laboratory_header input {
+    width: 100%;
+    padding: 3px;
+    border: none;
+    border-bottom: 1px solid #000;
+    background-color: transparent;
+}
+
+.form-field label {
+    font-weight: bold;
+}
+.form-field input {
+    width: 100%;
+    padding: 3px;
+    border: none;
+    border-bottom: 1px solid #000;
+    background-color: transparent;
+}
+
+
+
+.btn-save{
+    background-color: #457b9d;
+    color: #fff;
+    width: 15%;
+    
+}
+
+.btn-save:hover{
+    background-color: #fff;
+    border: 1px solid #457b9d;
+   
+}
+.btn-exit{
+    border: #457b9d 1px solid;
+    
+}
+.btn-exit:hover{
+    background-color: #457b9d;
+    color: #fff;
+}
+.btn-date:hover{
+    background-color: rgb(117, 0, 0);
+    color: #fff;
+}
+.btn-add-room{
+    background-color: #457b9d;
+    color: #fff;
+    width: 20%;
+}
+.btn-add-room:hover{
+    background-color: #fff;
+    border: 1px solid #457b9d;
+   
+}
+.btn-exit-hover{
+    color: #fff;
+}
+.btn-exit-hover:hover{
+    background-color: #dddada;
+    color: darkred;
+    outline: darkred;
+}
+
+.patient-info span{
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    color: #000;
+    font-weight: 600;
+}
+.footer{
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 2px;
+    width: 82%;
+    height: 30px;
+    
+   
+}
+.copyright{
+    width: 100%;
+    text-align: center;
+}
+.foot{
+    width: 60%;
+    left: 10%;
+    box-shadow: 0px 0px 10px 0px #9d9d9d;
+   
+}
+.foot-stock{
+    width: 60%;
+    left: 8%;
+    box-shadow: 0px 0px 10px 0px #9d9d9d;
+}
+.foot-details{
+    width: 68%;
+    left: 12%;
+    box-shadow: 0px 0px 10px 0px #9d9d9d;
+}
+.patient-info p{
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    color: #9d9d9d;
+}
+.progress__notes{
+    border: #9d9d9d 1px solid;
+    border-radius: 15px;
+    width: 95%;
+    margin-left: 20px;
+
+}
+.laboratory{
+    /* border-collapse: collapse; */
+
+    width: 100% !important;
+}
+ 
+/* .lab .test {
+    width: 40px !important;
+    
+}  */
+
+#my-qr-reader img[alt="Info icon"] {
+    display: none;
+}
+
+#my-qr-reader img[alt="Camera based scan"] {
+    width: 100px !important;
+    height: 100px !important;
+}
+.qr{
+    border: #9d9d9d 1px dashed;
+}
+#html5-qrcode-anchor-scan-type-change {
+    text-decoration: none !important;
+    color: #1d9bf0;
+}
+
+video {
+    width: 100% !important;
+    border: 1px solid #b2b2b2 !important;
+    border-radius: 0.25em;
+}
+.card{
+    border-radius: 15px;
+    width: 100%;
+
+}
+.inner-card{
+    padding: 1rem;
+    border-radius: 0%;
+}
+.print-btn{
+    cursor: pointer;
+}
+
+.add-btn{
+    cursor: pointer;
+    background-color: #20c997;
+   
+}
+.add-supp-btn{
+    cursor: pointer;
+    background-color: transparent;
+    color: #20c997!important;
+   
+}
+
+.add-btn:hover{
+    background-color: #fff;
+    border: 1px solid #20c997;
+    color: #20c997!important;
+}
+
+
+/* 
+.table th {
+    border-top:none ;
+}
+thead{
+   border-bottom: 0.7px solid #9d9d9d;
+}
+thead th{
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+tbody tr td{
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    
+} */
+
+.btn-show,.btn-delete{
+    font-size: 12px;
+}
+.btn-show{
+    background-color: #457b9d;
+    color: #fff;
+}
+.btn-show-progress{
+    font-size: 12px;
+    padding: 4px;
+    background-color: #457b9d;
+    color: #fff;
+}
+.btn-show:hover,.btn-show-progress:hover{
+    background-color: #fff;
+    border: 1px solid #457b9d;
+    color: #457b9d!important;
+}
+.followup-card{
+    border-radius: 15px;
+    border: 1px solid #9d9d9d;
+    width: 100%;
+    
+}
+.card-body{
+    width: 100%;
+}
+.patient__form textarea{
+    resize: none;
+}
+.card-footer{
+   padding-top: 10px;
+   padding-bottom: 2px;
+    justify-content: center;
+    width: 50%;
+    padding-inline:0 ;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px #9d9d9d;   
+}
+.card-footer a{
+    text-decoration: none;
+    padding: 0px 10px;
+    color: rgb(17, 17, 17);
+  font-weight: bold; 
+  cursor: pointer;
+  font-size: 15px;
+  margin: 0.4rem;
+    border-right:0 ;
+    border-radius: 50%;
+}
+.card-footer li.active a{
+    background-color: #457b9d;
+    color: #fff;
+}
+.pagination{
+    justify-content: center;
+    
+}
+.patient__info{
+    position: relative;
+    left: 12%;
+}
+@media screen and (max-width: 768px) {
+    .btn-save{
+       
+        width: 35%;
+    }
+    .add-btn{
+        font-size: 8px;
+        width: 35%;
+       
+    }
+
+    .card-title{
+        font-size: 12px!important;
+        text-wrap: none!important;
+    }
+    .card-footer{
+        width: 50%;  
+     }
+     .card-footer a{
+
+
+        border-radius: 10px;
+        font-size: 10px;
+        margin: 1px;
+        padding: 0px;
+        
+    }
+    .print-btn{
+        font-size: 11px;
+    }
+    .btn-show,.btn-delete{
+        font-size: 10px;
+    }
+    .btn-show-progress{
+        font-size: 8px;
+    }
+    .patient-info span{
+        font-size: 5px;
+    }
+    .patient-info p{
+        font-size: 6px;
+    }
+    .copyright{
+        font-size: 8px;
+    }
+    .foot{
+        width: 60% !important;
+        left: 30%;
+    }
+    .foot-stock{
+        width: 50% !important;
+        left: 30%;
+    }
+    .foot-details{
+        width: 60% !important;
+        left: 30%;
+    }
+}
+@media  (min-width: 768px ) and (max-width: 989px) {
+    .navbar-side{
+        width: 10%;
+    }
+    .foot{
+        width: 70% !important;
+        left: 20%;
+    }
+    .foot-stock{
+        width: 70% !important;
+        left: 15%;
+    }
+    .foot-details{
+        width: 70% !important;
+        left: 20%;
+    }
+    .patient__info{
+        left: 12%;
+    }
+
+
+}

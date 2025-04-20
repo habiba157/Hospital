@@ -1,0 +1,41 @@
+.lab-table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  margin-left: 10px;
+
+}
+
+.lab-table td, .lab-table th{
+    
+    padding: 0.3rem;
+    text-align: center;
+}
+.lab-table .test{
+    width: 15%;
+    text-align: left;
+}
+
+/* .test input[type="checkbox"]::after{
+
+    margin-left: 20px;
+} */
+
+.lab-table .space{
+    width: 1%;
+    border: 0;
+}
+.icd-code-th{
+    width: 8%;
+}
+.icd-code {
+    width: 8%;
+    border: none;
+    border-bottom: 1px solid  #767676;
+    outline: none;
+ 
+}
+.icd-code input{
+    margin: auto;
+    width: 100%;
+}

@@ -1,0 +1,91 @@
+<html>
+
+</html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign</title>
+</head>
+
+<body cz-shortcut-listen="true">
+
+    <div class="container my-5 text-center">
+
+        <div class="group row d-flex flex-row m-auto w-75 p-5 bg-light">
+            <div class="col-md-5">
+                <div class="float-start">
+                    <h3 class="fw-bold text-start">Sign Up</h3>
+                    <p class="login_paragraph">
+                        Create New User <br>(Admin, Doctor, Employee) .<br>Please Select The Job/Position ,Then Enter
+                        The Email and Password</p>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="col-md-7">
+                <div class="float-end w-100">
+                    <div class="col-md-6 w-100">
+
+                        <select id="signupRole" class="form-select col-md-3 my-3">
+                            <option disabled>Choose Role</option>
+
+                            <option value="admin">Admin</option>
+                            <option value="doctor">Doctor</option>
+                            <option value="employee">Employee</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 w-100">
+                        <input id="signupEmail" class="form-control col-md-3 my-3" placeholder="user@admin.com"
+                            type="text">
+
+                    </div>
+
+                    <div class="position-relative col-md-6 w-100">
+                        <input id="signupPassword" class="form-control my-3 col-md-3" placeholder="****************"
+                            type="password">
+                        <span><i id="toggler" class="far fa-eye"></i></span>
+                    </div>
+                    <div class="col-md-6 w-100 d-flex flex-row mb-2">
+                        <label for="currentDate" class="text-nowrap me-3">Start Date: </label>
+                        <input type="date" id="currentDate" class="form-control col-md-2 w-75" value="">
+
+                    </div>
+                    <div class="col-md-6 w-100 d-flex flex-row mt-3">
+                        <label for="futureDate" class="text-nowrap me-2">Expiry Date :</label>
+                        <input type="date" id="futureDate" class="form-control col-md-2 w-75" value="">
+                    </div>
+                    <p id="incorrect"></p>
+
+                    <div class="d-flex align-self-start">
+                        <button onclick="signUp()" class="btn btn-outline-info w-25 my-3">Sign Up</button>
+                    </div>
+                    <p class="text-black login_paragraph">You have an Account? <a class="signup"
+                            href="../index.html">Sign in</a></p>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/login.js"></script>
+
+
+</body>
+
+</html>

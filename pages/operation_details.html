@@ -1,0 +1,647 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Management</title>
+
+     
+
+    <!-- ! link for bootstrap css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- ! link for font Awesome -->
+    <link rel="stylesheet" href="../css/all.min.css">
+    <!-- ! link for style -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/patient_followup_specific.css">
+
+    <!-- ! link for cairo google fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+
+    <!-- !link for poppins google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body class="position-relative">
+
+    <!-- & side navbar -->
+
+    <nav class="navbar">
+
+        <ul class="nav-menu list-unstyled">
+            <li class="nav-item mb-5">
+                <div class="logo-container">
+                    <a href="/" class="d-flex align-items-start pb-1 me-2 text-decoration-none">
+                        <span class="d-inline-block text-capitalize logo ">Neurosurgery Department</span>
+                    </a>
+                </div>
+            </li>
+
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-home pe-3" aria-hidden="true"></i> Dashboard
+                </p>
+                <button onclick="location.href='dashboard.html'" class="btn bg-light rounded-pill dashboard-btn--color d-flex justify-content-center" onclick="location.href='dashboard.html'">
+                    Dashboard
+                </button>
+            </li>
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-plus-square pe-3" aria-hidden="true"></i>Patients
+                </p>
+                <div class="Patients__status bg-light py-1 px-3">
+                    <p class="mb-1 Patients_status__text">
+                        <a href="patient_list.html">All Patients</a>
+                    </p>
+                    <p class="mb-1 Patients_status__text">
+                        <a href="clinics.html">
+                            Add new patient
+                        </a>
+                    </p>
+
+                    <p class="mb-1 Patients_status__text_extra" data-role="both">
+                        <a href="patient_exit_cards.html">
+                            Patients Followup 
+
+                        </a>
+                    </p>
+                    <p class="mb-1 Patients_status__text_extra role-based" data-role="both">
+                        <a href="tomorrow_list.html">
+                            Tomorrow List
+
+                        </a>
+                    </p>
+                </div>
+            </li>
+             <li class="nav-item mb-2 role-based" data-role="admin">
+                    <p class="d-flex align-items-center sidenav-item">
+                        <i class="fa fa-users pe-3" aria-hidden="true"></i>Staff
+                    </p>
+                    <div class="staff__status bg-light py-1 px-3">
+                        <p class="mb-1 staff_status__text"><a href="users_list.html">All Users</a></p>
+                        <p class="mb-1 staff_status__text"><a href="user_info.html">Add new User</a></p>
+                        <p class="mb-1 staff_status__text"><a href="/">Attendance</a></p>
+
+                    </div>
+                </li>
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-hospital pe-3" aria-hidden="true"></i>Rooms
+                </p>
+                <div class="rooms__status bg-light py-1 px-3">
+                    <p class="mb-1 rooms_status__text"><a href="rooms_list.html">
+                            All Rooms
+                        </a></p>
+                    <p class="mb-1 rooms_status__text">
+                        <a href="add_room.html">
+                            Add new Room
+                        </a>
+                    </p>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-hospital pe-3" aria-hidden="true"></i>Stock
+                </p>
+                <div class="rooms__status bg-light py-1 px-3">
+                    <p class="mb-1 rooms_status__text"><a href="stock_list.html">
+                            All Stock
+                        </a></p>
+                    <p class="mb-1 rooms_status__text">
+                        <a href="add_stock.html">
+                            Add new Stock
+                        </a>
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+
+    <!-- & end side navbar  -->
+
+
+    <!-- * start main content -->
+    <div class="patient__info  me-4 ms-4 col-md-9 mb-5">
+        <div class="d-flex justify-content-between search__wrapper mx-auto bg-light px-2 pt-2 pb-2">
+            <input type="search" class="ps-2 py-2 searcher" placeholder="search" />
+
+            <div class="d-flex justify-content-between align-items-center">
+                <i class="fa fa-bell" aria-hidden="true"></i>
+                <p class="language border border-secondary rounded-1 px-2 mb-0 mx-2">
+                    AR
+                </p>
+                <i class="fa fa-male male__image" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="patient__form mx-auto mt-3 bg-light px-2 py-4">
+            <div class="d-flex flex-column align-items-start mb-4">
+                <h2 class="card-title fs-5">Operation Details</h2>
+                <p class="fw-bold text-muted"><span class="text-black">Patient Name :</span>Mohamed Ali Karim Salah</p>
+          </div>
+
+            <form class="row py-4">
+                
+                <div class="row my-2">
+
+                    <div class="col-md-4">
+                        <label for="name" class="form-label fw-bold">Operation Name</label>
+                        <select class="form-select" id="name">
+                            <option disabled selected>Select</option>
+                            <option>Evacuation of Epidural Haematoma </option>
+                            <option>Evacuation of Subdural Haematoma</option>
+                            <option>Evacuation of Posterior Fossa Haematoma</option>
+                            <option>Evacuation of Depressed Fracture</option>
+                            <option>Cranioplasty</option>
+                            <option>VP Shunt Revision</option>
+                            <option>Decompressive Craniectomy</option>
+                            <option>External Ventricular Drain</option>
+                            <option>Ventriculo-Peritoneal Shunt</option>
+                            <option>Endoscopic Fenestration</option> 
+                            <option>Endoscopic Fenestration and VP Shunting</option>    
+                            <option>Lipomyelocele repair and excision of intraspinal lipoma</option>
+                            <option>Lipomyelocele repair</option>
+                            <option>Excision of intraspinal lipoma</option>
+                            <option>EUD Insertion</option>
+                            <option>untethering of the cord</option>
+                            <option>removal of VP Shunt</option>
+                            <option>Discectomy</option>
+                            <option>Decompression & Fixation</option>
+                            <option>Brain Sol Excision</option>    
+                            <option>Biopsy</option>
+                            <option>Posterior Fassal Decompression</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 mt-2">
+                        <label class="fw-bold">Operation Date</label>
+
+                        <input type="date" class="form-control">
+                    </div>
+                    
+
+
+                </div>
+
+                <div class="row my-3">
+
+                    <div class="col-md-4">
+
+                        <label for="surgeon" class="form-label fw-bold">Main Surgeon<span style="color: red; margin-top: 5px;"> * </span></label>
+                        <select class="form-select" id="surgeon">
+                            <option>Mansor Mohamed</option>
+                            <option>Mohamed Hassan</option>
+                        </select>
+
+                        </div>
+                        <div class="col-md-4">
+
+                            <label for="nurse" class="form-label fw-bold">Nurse Name</label>
+                            <select class="form-select" id="nurse">
+                                <option>Ahmed</option>
+                                <option>Mohamed</option>
+                            </select>
+    
+                            </div>
+
+                </div>
+
+                <div class="row my-3" id="formfield_surgeon">
+                    <div class="col-md-4 ">
+
+                        <label for="surgeon" class="form-label fw-bold">1st Assistant<span style="color: red; margin-top: 5px;"> * </span></label>
+                        <select class="form-select" id="surgeon">
+                            <option>Ahmed Mohamed</option>
+                            <option>Mohamed Essam</option>
+                        </select>
+                        <!-- <button class="add-supp-btn border-0 mt-2" id="add-surgeon"><i class="fa fa-plus"></i>Add Another Doctor</button> -->
+        
+
+                        </div>
+                        <div class="col-md-4 formfield">
+
+                            <label for="nurse" class="form-label fw-bold">Circle Nurse Name</label>
+                            <select class="form-select" id="nurse">
+                                <option>Ahmed Alaa</option>
+                                <option>Samar Mohamed</option>
+                            </select>
+
+
+    
+                        <!-- <button class="add-supp-btn border-0" onclick="addField()"><i class="fa fa-plus"></i>Add Another Nurse</button> -->
+
+                            </div>
+
+
+                </div>
+
+                <div class="row my-3">
+
+                    <div class="col-md-4">
+
+                        <label for="Anesthesia" class="form-label fw-bold">Anesthetization Doctor <span style="color: red; margin-top: 5px;"> * </span></label>
+                        <select class="form-select" id="Anesthesia">
+                            <option>Ahmed Essam</option>
+                            <option>Mohamed Ahmed</option>
+                        </select>
+
+                        </div>
+                        <div class="col-md-4">
+
+                            <label for="Anesthesia-type" class="form-label fw-bold">Type Anesthetization <span style="color: red; margin-top: 5px;"> * </span></label>
+                            <select class="form-select" id="Anesthesia-type">
+                                <option>General Anesthesia</option>
+                                <option>Spinal Anesthesia</option>
+                                <option>Local Anesthesia</option>
+                                <option>Nerve Anesthesia</option>
+                            </select>
+    
+                            </div>
+
+                </div>
+                
+
+                <div class="row my-3">
+
+                    <div class="col-md-4">
+
+                        <label for="Anesthesia" class="form-label fw-bold">Anesthetization Doctor <span style="color: red; margin-top: 5px;"> * </span></label>
+                        <select class="form-select" id="Anesthesia">
+                            <option>Ahmed</option>
+                            <option>Mohamed</option>
+                        </select>
+
+                        </div>
+                        <div class="col-md-4">
+
+                            <label for="consultant" class="form-label fw-bold">Consulting Medical Doctor</label>
+                            <select class="form-select" id="consultant">
+                                <option>Ahmed</option>
+                                <option>Mohamed</option>
+                            </select>
+
+                            <!-- <button class="add-supp-btn border-0 mt-2" onclick="addField()"><i class="fa fa-plus"></i>Add Another Doctor</button> -->
+
+    
+                            </div>
+
+
+                </div>
+
+                <div class="row mt-2">
+
+                    <div class="col-md-4 formfield">
+
+                        <label for="devices" class="form-label fw-bold">Devices</label>
+                        <select class="form-select" id="devices">
+                            <option>Medtronic High Pressure VP Shunt</option>
+                            <option>Medtronic Medium Pressure VP Shunt</option>
+                            <option>Medtronic Low Pressure VP Shunt</option>
+                            <option>TP Shunt</option>
+                            <option>Ommaya Resevoir</option>
+                            <option>Medtronic External Ventricular Drain</option>
+                        </select>
+
+
+
+                    <!-- <button class="add-supp-btn border-0" onclick="addField()"><i class="fa fa-plus"></i>Add Another Device</button> -->
+
+                        </div>
+                        <div class="col-md-2">
+
+                            <label for="barcode" class="form-label fw-bold">BarCode</label>
+                            <input type="text" class="form-control" id="barcode">
+                        </div>
+
+
+                        <div class="col-md-2">
+
+                            <label for="quantity" class="form-label fw-bold">Quantity</label>
+                            <input type="text" class="form-control" id="quantity">
+                        </div>
+
+                        <div class="col-md-3">
+
+                            <label for="country" class="form-label fw-bold">Country</label>
+                            <input type="text" class="form-control" id="country">
+                        </div>
+                </div>
+                <!-- <div class="row mt-2 file_upload">
+                    <div class="col-md-4 formfield">
+
+                        <label for="sample" class="form-label fw-bold">Sample</label>
+                        
+
+
+                        <div class="check">
+                            <input type="file" class="form-control py-3 file-input" multiple>
+                            <label for="file-input" class="py-3 d-flex flex-column upload">
+                                <i class="fas fa-plus fw-bold fs-5"></i>
+                                Upload Images
+                            </label>
+
+                        </div>
+
+                    <button class="add-supp-btn border-0" onclick="addField()"><i class="fa fa-plus"></i>Add Another Sample</button> 
+                        </div> -->
+                        <div class="row mt-2 file_upload">
+                            <div class="col-md-4 formfield">
+                                <label for="sample" class="form-label fw-bold">Sample</label>
+                                <div class="check">
+                                    <input type="file" class="form-control py-3 file-input" id="sample_images" multiple>
+                                    <label for="sample_images" class="py-3 d-flex flex-column upload">
+                                        <i class="fas fa-plus fw-bold fs-5"></i>
+                                        Upload Images
+                                    </label>
+                                    <div class="preview-container d-flex flex-wrap"></div>
+                                    <div class="enlarged-view">
+                                        <span class="close-enlarged">&times;</span>
+                                        <div class="enlarged-content"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="col-md-4">
+
+                            <label for="notes" class="form-label fw-bold">Sample Comments</label>
+                            <br>
+                            <textarea name="notes" id="notes" class="form-control" rows="3"></textarea>
+                        </div>
+                </div>
+                <div class="row mt-2">
+                    <!-- <div class="col-md-4 formfield file_upload">
+
+                        <label for="cut" class="form-label fw-bold">Cutting Off</label>
+                        <div class="check">
+                            <input type="file" class="form-control py-3 file-input" multiple>
+                            <label for="file-input" class="py-3 d-flex flex-column upload">
+                                <i class="fas fa-plus fw-bold fs-5"></i>
+                                Upload Images
+                            </label>
+                            <div class="preview-container d-flex flex-wrap"></div>
+                            <div class="enlarged-view">
+                                <span class="close-enlarged">&times;</span>
+                                <div class="enlarged-content"></div>
+                            </div>
+
+                        </div>
+
+                         <button class="add-supp-btn border-0" onclick="addField()"><i class="fa fa-plus"></i>Add Another Cutting Off</button> 
+                    </div> -->
+
+
+                    <div class="col-md-4 formfield file_upload">
+                        <label for="cut" class="form-label fw-bold">Cutting Off</label>
+                        <div class="check">
+                            <input type="file" class="form-control py-3" id="cut_images" multiple>
+                            <label for="cut_images" class="py-3 d-flex flex-column upload">
+                                <i class="fas fa-plus fw-bold fs-5"></i>
+                                Upload Images
+                            </label>
+                            <div class="preview-container d-flex flex-wrap"></div>
+                            <div class="enlarged-view">
+                                <span class="close-enlarged">&times;</span>
+                                <div class="enlarged-content"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                        <div class="col-md-4">
+                            <label for="notes" class="form-label fw-bold">Cutting off Comments</label>
+                            <br>
+                            <textarea name="notes" id="notes" class="form-control" rows="3"></textarea>
+                        </div>
+                </div>
+
+                <div class="row my-2">
+                    <div class="col-md-4 formfield">
+
+                        <label for="loss" class="form-label fw-bold">Blood Loss </label>
+                        <input type="text" name="loss" id="loss" placeholder="5" class="form-control">
+                </div>
+                
+        
+                <div class="row my-2">
+                    <div class="col-md-4">
+                        <label for="operative" class="form-label fw-bold">Operative Details :</label>
+<textarea class="form-control" id="operative" rows="5"></textarea>
+
+                    </div>
+                    <div class="col-md-4">
+
+                        <label for="complications" class="form-label fw-bold">Complications Details :</label>
+<textarea class="form-control" id="complications" rows="5"></textarea>
+
+                    </div>
+                </div>
+
+                <div class="row my-2">
+                    <div class="col-md-4">
+                        <label for="operation_state" class="form-label fw-bold">Post Operation State :</label>
+<textarea class="form-control" id="operative" rows="2"></textarea>
+
+                    </div>
+                    <!-- <div class="col-md-4 file_upload">
+
+                        <label for="operation_images" class="form-label fw-bold">Post Operation Images :</label>
+                        <div class="check">
+                            <input type="file" class="form-control py-3 file-input" multiple>
+                            <label for="file-input" class="py-3 d-flex flex-column upload">
+                                <i class="fas fa-plus fw-bold fs-5"></i>
+                                Upload Images
+                            </label>
+                            <div class="preview-container d-flex flex-wrap"></div>
+                        <div class="enlarged-view" >
+                            <span class="close-enlarged">&times;</span>
+                            <div class="enlarged-content"></div>
+                        </div>
+
+                        </div>
+
+                    </div> -->
+                
+                    <div class="col-md-4 file_upload">
+                        <label for="operation_images" class="form-label fw-bold">Post Operation Images :</label>
+                        <div class="check">
+                            <input type="file" class="form-control py-3" id="operation_images" multiple>
+                            <label for="operation_images" class="py-3 d-flex flex-column upload">
+                                <i class="fas fa-plus fw-bold fs-5"></i>
+                                Upload Images
+                            </label>
+                            <div class="preview-container d-flex flex-wrap"></div>
+                            <div class="enlarged-view">
+                                <span class="close-enlarged">&times;</span>
+                                <div class="enlarged-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                
+                
+                </div>
+
+                <div class="row my-2">
+                    <div class="col-md-4">
+                        <label for="type_room" class="form-label fw-bold">Type of Room :</label>
+                        <select class="form-select" id="type_room">
+                            <option  disabled selected> Select</option>
+                            <option value="care" class="type_room">Care Room</option>
+                            <option value="normal" class="type_room">Normal Room</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="number_room" class="form-label fw-bold">Room Number :</label>
+
+
+                        <select class="form-select room_number" data-type="care" id="care_room" style="display: flex;">
+                            <option value="" disabled selected> Select</option>
+                            <option class="type_room">Room 1</option>
+                            <option class="type_room">Room 2</option>
+                        </select>
+
+
+                        <select class="form-select room_number" data-type="normal" id="normal_room" style="display: none;">
+                            <option value="" disabled selected> Select</option>
+                            <option class="type_room">Room 1</option>
+                            <option class="type_room">Room 2</option>
+                        </select>
+                        </div>
+                </div>
+
+                <div class="row my-2 ms-3">
+                    <button id="btn-report" style="display: none;" class="btn btn-save btn-outline-light col-md-6" type="button" onclick="window.location.href='operation_report.html'">Print Report</button>
+                </div>
+
+
+                <!-- <div class="row">
+                    <div id="video_check" class="check d-flex justify-content-end file_upload">
+                        <input type="file" class="form-control py-1 file-input" style="display: none;" multiple>
+                        <label for="file-input" class="py-2 d-flex flex-column upload">
+                            <i class="fas fa-plus fw-bold fs-5"></i>
+                            Upload Video Operations
+                        </label>
+
+                        <div class="preview-container d-flex flex-wrap"></div>
+                        <div class="enlarged-view" >
+                            <span class="close-enlarged">&times;</span>
+                            <div class="enlarged-content"></div>
+                        </div>
+                    </div>
+                </div> -->
+
+
+                <div class="row">
+                    <!-- <div id="video_check" class="check d-flex justify-content-end file_upload">
+                        <input type="file" class="form-control py-1 file-input" id="input_video" style="display: none;" multiple>
+                        <label for="video_upload" class="py-2 d-flex flex-column upload">
+                            <i class="fas fa-plus fw-bold fs-5"></i>
+                            Upload Video Operations
+                        </label>
+                        <div class="preview-container d-flex flex-wrap"></div>
+                        <div class="enlarged-view">
+                            <span class="close-enlarged">&times;</span>
+                            <div class="enlarged-content"></div>
+                        </div>
+                    </div> -->
+
+                    <div id="video_check" class="check d-flex justify-content-end">
+                        <input type="file" class="form-control py-1" id="input_video" style="display: none;" multiple>
+                        <label for="input_video" class="py-2 d-flex flex-column upload">
+                            <i class="fas fa-plus fw-bold fs-5"></i>
+                            Upload Video Operations
+                        </label>
+                        <div class="preview-container d-flex flex-wrap"></div>
+                        <div class="enlarged-view">
+                            <span class="close-enlarged">&times;</span>
+                            <div class="enlarged-content"></div>
+                        </div>
+    
+                    </div>
+
+
+                </div>
+                
+
+
+
+                <div class="row mt-4 mb-2 justify-content-end align-items-end align-self-end">
+                    <button type="button" id="btn-hide" class="btn btn-save btn-outline-light col-md-3 fs-5" onclick="showPrint()"
+                        >Save</button>
+                </div>
+        </div>
+        </form>
+    </div>
+    </div>
+
+    <!-- ~~~~~~~~ Footer ~~~~~~~~ -->
+    <footer class="footer text-center my-4 mx-auto rounded-4 ">
+        <div class="container copyright">
+            <div class="row">
+                <div class="col-sm-12 my-3 bg-light fixed-bottom foot-stock mx-auto rounded-4" >
+                    <div class="copyright-box">
+                        <p>© Copyright. All Rights Reserved by MAG</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ~~~~~~~~ End of Footer ~~~~~~~~ -->
+    <nav class="navbar-side">
+
+        <ul class="nav-menu list-unstyled ">
+
+            <li class="nav-item mb-2 mt-5">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-video-camera pe-3" aria-hidden="true"></i> Videos
+                </p>
+
+            </li>
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-users pe-3" aria-hidden="true"></i>Meetings
+                </p>
+
+            </li>
+            <li class="nav-item mb-2">
+                <p class="d-flex align-items-center sidenav-item">
+                    <i class="fa fa-globe pe-3" aria-hidden="true"></i>Conferences
+                </p>
+
+            </li>
+
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+
+
+
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/video_check.js"></script>
+</body>
+
+</html>
